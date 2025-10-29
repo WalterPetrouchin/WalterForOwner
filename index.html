@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- UPDATED: Title for the Owner.com role -->
+    <title>[Your Name] | Events Manager Application for Owner.com</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts: Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Custom CSS for styling and animations -->
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f8fafc; /* slate-50 */
+            color: #0f172a; /* slate-900 */
+        }
+        .section {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 8rem 2rem;
+        }
+        /* New class for more compact sections */
+        .section-compact {
+            min-height: auto;
+            padding-top: 6rem;
+            padding-bottom: 6rem;
+        }
+        .glass-effect {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid rgba(0, 0, 0, 0.05);
+        }
+        /* UPDATED: highlight-text class to use Owner.com's blue */
+        .highlight-text {
+            /* Using a blue gradient that matches Owner.com's branding */
+            background: linear-gradient(120deg, #3b82f6, #2563eb, #1d4ed8, #3b82f6);
+            background-size: 300% 300%;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: gradient-move 8s ease-in-out infinite;
+        }
+        .scroll-indicator {
+            animation: bounce 2s infinite;
+        }
+
+        /* Keyframes for the gradient animation */
+        @keyframes gradient-move {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% {
+                transform: translateY(0);
+            }
+            40% {
+                transform: translateY(-20px);
+            }
+            60% {
+                transform: translateY(-10px);
+            }
+        }
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        }
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .memo-grid {
+            display: grid;
+            grid-template-columns: 100px 1fr;
+            gap: 0.5rem 1rem;
+        }
+        .memo-label {
+            font-weight: 600;
+            color: #64748b; /* slate-500 */
+        }
+        /* Mobile Menu Transition */
+        #mobile-menu {
+            transition: opacity 0.3s ease-in-out;
+        }
+
+        /* --- Desktop Experience Overlay Styles --- */
+        #desktop-overlay {
+            transition: opacity 0.5s ease-in-out;
+        }
+        #desktop-overlay-content {
+            transition: transform 0.5s ease-in-out, opacity 0.5s ease-in-out;
+            animation: fadeInContent 0.8s ease-out forwards;
+        }
+        @keyframes fadeInContent {
+            from {
+                opacity: 0;
+                transform: translateY(20px) scale(0.98);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+            }
+        }
+        .countdown-bar-inner {
+            animation: countdown 10s linear forwards;
+        }
+        @keyframes countdown {
+            from { width: 100%; }
+            to { width: 0%; }
+        }
+    </style>
+</head>
+<body class="antialiased">
+
+    <!-- Desktop Experience Overlay -->
+    <div id="desktop-overlay" class="fixed inset-0 z-[100] bg-slate-900/80 backdrop-blur-lg flex items-center justify-center p-6 text-center hidden">
+        <div id="desktop-overlay-content" class="relative bg-white rounded-2xl shadow-2xl p-8 md:p-12 max-w-lg w-full">
+            <div class="flex justify-center items-center h-16 w-16 rounded-full bg-slate-100 mx-auto mb-6 ring-4 ring-slate-200">
+                <svg class="h-8 w-8 text-slate-600" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M9 17.25v1.007a3 3 0 01-.879 2.122L7.5 21h9l-1.621-.621A3 3 0 0115 18.257V17.25m6-12V15a2.25 2.25 0 01-2.25 2.25H5.25A2.25 2.25 0 013 15V5.25A2.25 2.25 0 015.25 3h13.5A2.25 2.25 0 0121 5.25z" />
+                </svg>
+            </div>
+            <h2 class="text-2xl font-bold text-slate-800">Best experienced on desktop</h2>
+            <p class="text-slate-600 mt-3">For the ideal viewing experience, please visit this site on a desktop browser at:</p>
+            <!-- UPDATED: Placeholder for new URL -->
+            <div class="mt-4 bg-slate-100 text-blue-600 font-semibold py-3 px-4 rounded-lg text-lg">
+                [YourWebsiteURL.com]
+            </div>
+            <p id="countdown-text" class="text-xs text-slate-400 mt-6">Continuing to mobile in <span id="countdown-timer" class="font-semibold">10</span> seconds...</p>
+            <div class="absolute bottom-0 left-0 right-0 h-1.5 bg-slate-200 rounded-b-2xl overflow-hidden">
+                <!-- UPDATED: Bar color to blue -->
+                <div class="h-full bg-blue-600 countdown-bar-inner"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Navigation Header -->
+    <header id="main-header" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <!-- UPDATED: Placeholder for name -->
+            <a href="/" class="text-xl font-bold tracking-wider text-slate-800">[YOUR NAME]</a>
+            
+            <!-- UPDATED: Desktop Navigation for Owner.com role -->
+            <nav class="hidden lg:flex items-center space-x-6 text-sm font-medium text-slate-600">
+                <a href="/" class="text-blue-600 font-semibold transition-colors">Home</a>
+                <a href="resume.html" class="hover:text-blue-600 transition-colors">Resume & Story</a>
+                <a href="playbooks.html" class="hover:text-blue-600 transition-colors">My Work & Playbooks</a>
+                <a href="why.html" class="hover:text-blue-600 transition-colors">My "Why"</a>
+                <a href="qa.html" class="hover:text-blue-600 transition-colors">Application Q&A</a>
+                <a href="plan.html" class="hover:text-blue-600 transition-colors">My 90-Day Plan</a>
+                <a href="fun.html" class="hover:text-blue-600 transition-colors">Beyond Work</a>
+                <a href="thankyou.html" class="hover:text-blue-600 transition-colors">Thank You</a>
+            </nav>
+
+            <!-- Mobile Menu Button -->
+            <div class="lg:hidden">
+                <button id="mobile-menu-button" class="text-slate-800 focus:outline-none z-50">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- UPDATED: Mobile Menu Overlay for Owner.com role -->
+    <div id="mobile-menu" class="fixed inset-0 z-40 bg-white/95 backdrop-blur-lg flex flex-col items-center justify-center space-y-6 opacity-0 pointer-events-none lg:hidden">
+        <a href="/" class="text-2xl font-semibold text-blue-600">Home</a>
+        <a href="resume.html" class="text-2xl font-semibold text-slate-800">Resume & Story</a>
+        <a href="playbooks.html" class="text-2xl font-semibold text-slate-800">My Work & Playbooks</a>
+        <a href="why.html" class="text-2xl font-semibold text-slate-800">My "Why"</a>
+        <a href="qa.html" class="text-2xl font-semibold text-slate-800">Application Q&A</a>
+        <a href="plan.html" class="text-2xl font-semibold text-slate-800">My 90-Day Plan</a>
+        <a href="fun.html" class="text-2xl font-semibold text-slate-800">Beyond Work</a>
+        <a href="thankyou.html" class="text-2xl font-semibold text-slate-800">Thank You</a>
+    </div>
+
+
+    <!-- Section 1: The Hook -->
+    <section id="hook" class="section flex-col relative overflow-hidden">
+        <div class="absolute inset-0 bg-grid-pattern opacity-10"></div>
+        <div class="absolute inset-0 bg-gradient-to-b from-transparent to-slate-50"></div>
+        <div class="text-center z-10 fade-in">
+            <!-- UPDATED: Hook for Owner.com Events Manager role -->
+            <h1 class="font-extrabold tracking-tight text-slate-900">
+                <span class="block text-xl md:text-2xl lg:text-3xl font-medium text-slate-600">
+                    An application for the 
+                    <strong class="font-semibold text-slate-800">Events Manager</strong>
+                    role at
+                </span>
+                <span class="block mt-2 text-5xl md:text-7xl lg:text-8xl highlight-text">Owner.com</span>
+            </h1>
+            <!-- UPDATED: Placeholder for name -->
+            <p class="mt-8 text-sm text-slate-500">By [Your Name]</p>
+        </div>
+        <div class="absolute bottom-10 left-1/2 -translate-x-1/2 z-10">
+             <a href="#video" class="flex flex-col items-center text-slate-500 hover:text-slate-900 transition-colors">
+                <span class="text-xs">Get to know me</span>
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 mt-1 scroll-indicator" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                </svg>
+            </a>
+        </div>
+    </section>
+
+    <main>
+        <!-- Section 2: Video Introduction -->
+        <section id="video" class="section section-compact bg-white">
+            <div class="container mx-auto px-6 text-center fade-in">
+                <div class="mb-12">
+                    <!-- UPDATED: Color to blue -->
+                    <h2 class="text-sm font-bold uppercase tracking-widest text-blue-600">Introduction</h2>
+                    <p class="mt-3 text-3xl md:text-4xl font-bold text-slate-900">A 60-Second Intro</p>
+                    <p class="mt-4 max-w-2xl mx-auto text-slate-600">Nice to meet you!</p>
+                </div>
+                <div class="max-w-4xl mx-auto">
+                    <div class="aspect-video bg-slate-200 rounded-xl overflow-hidden shadow-2xl shadow-slate-900/10 border border-slate-200">
+                        <!-- TODO: Replace this with your video link -->
+                        <iframe 
+                            src="https://www.youtube.com/embed/[Your_Video_ID]" 
+                            frameborder="0" 
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                            allowfullscreen
+                            class="w-full h-full"
+                            title="Video Introduction for Owner.com">
+                        </iframe>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 3: The Memo -->
+        <section id="memo" class="section section-compact">
+            <div class="container mx-auto px-6 fade-in">
+                <div class="text-center mb-12">
+                    <!-- UPDATED: Color to blue -->
+                    <h2 class="text-sm font-bold uppercase tracking-widest text-blue-600">My Approach</h2>
+                    <p class="mt-3 text-3xl md:text-4xl font-bold text-slate-900">My First Deliverable To You</p>
+                    <!-- UPDATED: Memo text for Owner.com -->
+                    <p class="mt-4 max-w-2xl mx-auto text-slate-600">The job description says you're looking for a "builder" with an "owner's mindset" to create a scalable events program from scratch. A standard resume can't prove that. This custom site is my first deliverable to show you I'm that person.</p>
+                </div>
+                <!-- The memo is now a clickable link -->
+                <!-- UPDATED: Memo is now just a display, not a link -->
+                <div class="block group">
+                    <div class="max-w-4xl mx-auto bg-white p-8 md:p-12 rounded-xl shadow-2xl shadow-slate-900/10 border border-slate-200 transition-all duration-300">
+                        <!-- UPDATED: Memo content for Owner.com -->
+                        <div class="memo-grid items-center mb-6 text-sm md:text-base">
+                            <p class="memo-label">TO:</p><p class="text-slate-800">Owner.com Marketing & Sales Leadership</p>
+                            <p class="memo-label">FROM:</p><p class="text-slate-800">[Your Name]</p>
+                            <p class="memo-label">DATE:</p><p id="memo-date" class="text-slate-800"></p>
+                            <p class="memo-label">SUBJECT:</p><p class="font-semibold text-slate-900">Application for Events Manager: A 'Builder' Ready to Start</p>
+                        </div>
+                        <hr class="border-slate-200 my-8">
+                        <div class="prose prose-slate max-w-none text-slate-600 space-y-4">
+                            <p><strong>Why:</strong> The job description emphasizes the need for a "builder" to create the events function from the ground up. A standard resume is insufficient to demonstrate this. This custom website is my solution—it's my first deliverable, designed to show you *how* I think, build, and execute.</p>
+                            <p><strong>What:</strong> My mission is to prove I am the person who can own this function. I don't just run events; I build sales-focused event *engines*. My approach is to partner directly with Sales to create authentic, community-driven experiences (dinners, trade shows, pop-ups) that deliver measurable pipeline and a clear ROI.</p>
+                            <p><strong>How:</strong> This multi-page site is my application-in-action. It's organized to show you everything you need to know, saving you time. Here you will find:<br>
+                            • <strong>My Work & Playbooks:</strong> Examples of event strategies, photo galleries, and sample ROI dashboards.<br>
+                            • <strong>My "Why":</strong> A detailed breakdown of why your mission to help independent restaurants resonates with me.<br>
+                            • <strong>My 90-Day Plan:</strong> A proactive plan to build this function from day one and deliver a "quick win."</p>
+                            <p><strong>Now:</strong> I invite you to explore the pages of this site. Each section is a testament to the quality and strategic mindset I bring. I am ready and excited to build this with you. When you're ready, the next step is to schedule a conversation.</p>
+                            <p class="pt-4">Thank you for your time and consideration.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 4: Next Page -->
+        <section id="next-page" class="section-compact bg-white border-t border-slate-200">
+            <div class="container mx-auto px-6 text-center">
+                <h2 class="text-2xl font-bold text-slate-800">Get to know me</h2>
+                <p class="mt-2 text-slate-600">The next page details my background, experiences, and what drives me.</p>
+                <div class="mt-8">
+                    <!-- UPDATED: Button color to blue -->
+                    <a href="resume.html" class="inline-flex items-center justify-center gap-x-3 bg-blue-600 text-white font-semibold py-3 px-8 rounded-lg hover:bg-blue-700 transition-colors text-lg shadow-md hover:shadow-lg transform hover:-translate-y-1">
+                        View My Resume & Story
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-slate-100 border-t border-slate-200">
+        <div class="container mx-auto px-6 py-8 text-center text-slate-500">
+            <!-- UPDATED: Placeholders -->
+            <p class="font-semibold text-slate-700">[Your Name]</p>
+            <p class="text-sm">
+                <a href="mailto:[YOUR_EMAIL_HERE]" class="hover:text-blue-600 transition-colors">[YOUR_EMAIL_HERE]</a> | [YOUR_PHONE_HERE]
+            </p>
+            <p class="text-sm mt-1">
+                <a href="[YOUR_LINKEDIN_URL]" target="_blank" rel="noopener noreferrer" class="text-blue-600 hover:underline">LinkedIn Profile</a>
+            </p>
+        </div>
+    </footer>
+
+    <!-- JavaScript for interactivity -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            
+            // --- Desktop Experience Overlay Logic ---
+            const overlay = document.getElementById('desktop-overlay');
+            const countdownTimerEl = document.getElementById('countdown-timer');
+            const countdownTextEl = document.getElementById('countdown-text');
+            const DESKTOP_BREAKPOINT = 1024; // lg breakpoint in Tailwind
+
+            let countdownInterval;
+            let mainTimeout;
+
+            const hideOverlay = () => {
+                clearInterval(countdownInterval);
+                clearTimeout(mainTimeout);
+                overlay.style.opacity = '0';
+                setTimeout(() => {
+                    overlay.style.display = 'none';
+                    document.body.style.overflow = 'auto';
+                }, 500); // Match CSS transition duration
+            };
+
+            if (window.innerWidth < DESKTOP_BREAKPOINT) {
+                overlay.classList.remove('hidden');
+                document.body.style.overflow = 'hidden';
+
+                let secondsLeft = 10;
+                countdownTimerEl.textContent = secondsLeft;
+
+                countdownInterval = setInterval(() => {
+                    secondsLeft--;
+                    countdownTimerEl.textContent = secondsLeft;
+                    if (secondsLeft <= 0) {
+                        clearInterval(countdownInterval);
+                        countdownTextEl.textContent = "Continuing to mobile...";
+                    }
+                }, 1000);
+
+                mainTimeout = setTimeout(hideOverlay, 10000);
+
+                // Allow user to click to exit early
+                overlay.addEventListener('click', hideOverlay);
+            }
+
+
+            // --- Set Memo Date ---
+            const memoDate = document.getElementById('memo-date');
+            if(memoDate) {
+                memoDate.textContent = new Date().toLocaleString('en-US', {
+                    year: 'numeric',
+                    month: 'long',
+                    day: 'numeric'
+                });
+            }
+
+            // --- Header Scroll Effect ---
+            const header = document.getElementById('main-header');
+            if (header) {
+                window.addEventListener('scroll', () => {
+                    if (window.scrollY > 50) {
+                        header.classList.add('glass-effect', 'shadow-lg');
+                    } else {
+                        header.classList.remove('glass-effect', 'shadow-lg');
+                    }
+                });
+            }
+
+            // --- Fade-in on Scroll Animation ---
+            const faders = document.querySelectorAll('.fade-in');
+            const appearOptions = {
+                threshold: 0.2,
+                rootMargin: "0px 0px -50px 0px"
+            };
+            const appearOnScroll = new IntersectionObserver(function(entries, appearOnScroll) {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                        appearOnScroll.unobserve(entry.target);
+                    }
+                });
+            }, appearOptions);
+
+            faders.forEach(fader => {
+                appearOnScroll.observe(fader);
+            });
+            
+            // --- Mobile Menu Logic (Simplified) ---
+            const mobileMenuButton = document.getElementById('mobile-menu-button');
+            const mobileMenu = document.getElementById('mobile-menu');
+            const mobileMenuLinks = mobileMenu.querySelectorAll('a');
+
+            const toggleMobileMenu = () => {
+                const isMenuOpen = !mobileMenu.classList.contains('pointer-events-none');
+                if (isMenuOpen) {
+                    // Close menu
+                    mobileMenu.classList.add('opacity-0');
+                    setTimeout(() => {
+                        mobileMenu.classList.add('pointer-events-none');
+                        document.body.style.overflow = 'auto';
+                    }, 300);
+                } else {
+                    // Open menu
+                    mobileMenu.classList.remove('opacity-0', 'pointer-events-none');
+                    document.body.style.overflow = 'hidden';
+                }
+            };
+
+            if (mobileMenuButton && mobileMenu) {
+                // Event Listeners
+                mobileMenuButton.addEventListener('click', toggleMobileMenu);
+
+                // Close menu when a link is clicked
+                mobileMenuLinks.forEach(link => {
+                    link.addEventListener('click', toggleMobileMenu);
+                });
+
+                // Close menu when clicking on the overlay background
+                mobileMenu.addEventListener('click', (event) => {
+                    if (event.target === mobileMenu) {
+                        toggleMobileMenu();
+                    }
+                });
+
+                // Close menu on escape key press for accessibility
+                window.addEventListener('keydown', (e) => {
+                    const isMenuOpen = !mobileMenu.classList.contains('pointer-events-none');
+                    if (e.key === 'Escape' && isMenuOpen) {
+                        toggleMobileMenu();
+                    }
+                });
+            }
+        });
+    </script>
+</body>
+</html>
