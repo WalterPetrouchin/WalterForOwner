@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fit | Walter Petrouchin</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts: Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Custom CSS for styling and animations -->
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f8fafc; /* slate-50 */
+            color: #0f172a; /* slate-900 */
+        }
+        .section-compact {
+            min-height: auto;
+            padding-top: 6rem;
+            padding-bottom: 6rem;
+        }
+        .glass-effect {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid rgba(0, 0, 0, 0.05);
+        }
+        /* Mobile Menu Transition */
+        #mobile-menu {
+            transition: opacity 0.3s ease-in-out;
+        }
+        .value-icon {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 4rem; /* 16 */
+            height: 4rem; /* 16 */
+            border-radius: 9999px; /* full */
+            background-color: #eff6ff; /* blue-50 */
+            border: 1px solid #dbeafe; /* blue-100 */
+            margin-bottom: 1.5rem; /* mb-6 */
+        }
+        .value-icon svg {
+            width: 2rem; /* 8 */
+            height: 2rem; /* 8 */
+            color: #2563eb; /* blue-600 */
+        }
+    </style>
+</head>
+<body class="antialiased">
+
+    <!-- Navigation Header -->
+    <header id="main-header" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 glass-effect shadow-lg">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="/" class="text-xl font-bold tracking-wider text-slate-800">WALTER PETROUCHIN</a>
+            
+            <!-- UPDATED: Desktop Navigation -->
+            <nav class="hidden lg:flex items-center space-x-6 text-sm font-medium text-slate-600">
+                <a href="/" class="hover:text-blue-600 transition-colors">Home</a>
+                <a href="resume.html" class="hover:text-blue-600 transition-colors">Resume & Story</a>
+                <a href="events.html" class="hover:text-blue-600 transition-colors">Events</a>
+                <a href="fit.html" class="text-blue-600 font-semibold transition-colors">Fit</a>
+                <a href="plan.html" class="hover:text-blue-600 transition-colors">90-Day Plan</a>
+                <a href="fun.html" class="hover:text-blue-600 transition-colors">Beyond Work</a>
+                <a href="thankyou.html" class="hover:text-blue-600 transition-colors">Thank You</a>
+            </nav>
+
+            <!-- Mobile Menu Button -->
+            <div class="lg:hidden">
+                <button id="mobile-menu-button" class="text-slate-800 focus:outline-none z-50">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- UPDATED: Mobile Menu Overlay -->
+    <div id="mobile-menu" class="fixed inset-0 z-40 bg-white/95 backdrop-blur-lg flex flex-col items-center justify-center space-y-6 opacity-0 pointer-events-none lg:hidden">
+        <a href="/" class="text-2xl font-semibold text-slate-800">Home</a>
+        <a href="resume.html" class="text-2xl font-semibold text-slate-800">Resume & Story</a>
+        <a href="events.html" class="text-2xl font-semibold text-slate-800">Events</a>
+        <a href="fit.html" class="text-2xl font-semibold text-blue-600">Fit</a>
+        <a href="plan.html" class="text-2xl font-semibold text-slate-800">90-Day Plan</a>
+        <a href="fun.html" class="text-2xl font-semibold text-slate-800">Beyond Work</a>
+        <a href="thankyou.html" class="text-2xl font-semibold text-slate-800">Thank You</a>
+    </div>
+
+
+    <!-- Main Content Section -->
+    <main class="pt-32">
+        <!-- UPDATED: Intro Section -->
+        <section id="intro" class="container mx-auto px-6 text-center">
+            <div class="max-w-3xl mx-auto">
+                <h1 class="text-4xl md:text-5xl font-extrabold tracking-tight text-slate-900">Why I'm a Fit for Owner.com</h1>
+                <p class="mt-4 text-lg text-slate-600">
+                   A company's culture is its operating system. I've read your Culture Deck and I deeply align with your values because I've lived them. Your mission of "arming owners to take on their goliaths" is my family's story.
+                </p>
+            </div>
+        </section>
+        
+        <!-- UPDATED: Core Values Section -->
+        <section id="core-values" class="container mx-auto px-6 pt-24 pb-16">
+            <div class="max-w-4xl mx-auto">
+                <div class="text-center mb-16">
+                     <h2 class="text-3xl md:text-4xl font-bold text-slate-900">Embodying the Owner.com Values</h2>
+                     <p class="mt-4 max-w-2xl mx-auto text-slate-600">Here is how my experiences and mindset align with your five core values.</p>
+                </div>
+
+                <div class="grid grid-cols-1 gap-8">
+                    <!-- Value Card 1: Obsess over customers -->
+                    <div class="bg-white p-8 rounded-xl shadow-lg border border-slate-200 text-left flex flex-col">
+                        <div class="value-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12Z" /></svg>
+                        </div>
+                        <h3 class="text-2xl font-bold text-slate-800">Obsess Over Customers</h3>
+                        <div class="text-slate-600 mt-4 leading-relaxed flex-grow">
+                            <p class="italic text-slate-500">TL;DR: I grew up inside a "mom-and-pop" business. I connect with your customers on a personal level because I am from a customer's family. I know their struggles firsthand, from six-figure client emails at age 10 to defending the business in court at 18.</p><br>
+                            <p>Your mission is personal for me. I watched my immigrant parents build their window and door business from nothing. I was at trade shows at age 6 and writing client emails for six-figure deals by age 10. When our family business was wrongfully sued, I saw how vulnerable "mom-and-pop" owners are. I enrolled in a law class, wrote the defense briefs myself, and successfully defended our business in court.</p><br>
+                            <p>I know what's at stake. I know the stress, the long hours, and the feeling of being up against "goliaths." My obsession comes from a deep, personal understanding of who your customers are and a burning desire to help them win.</p>
+                        </div>
+                    </div>
+                    <!-- Value Card 2: Move fast -->
+                    <div class="bg-white p-8 rounded-xl shadow-lg border border-slate-200 text-left flex flex-col">
+                        <div class="value-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="m3.75 13.5 10.5-11.25L12 10.5h8.25L9.75 21.75 12 13.5H3.75Z" /></svg>
+                        </div>
+                         <h3 class="text-2xl font-bold text-slate-800">Move Fast</h3>
+                        <div class="text-slate-600 mt-4 leading-relaxed flex-grow">
+                            <p class="italic text-slate-500">TL;DR: I operate with a high sense of urgency and efficiency. I graduated from USC with two degrees in just 3 years (with a 3.9 GPA) by taking 21 units a semester. I believe in executing with speed and precision.</p><br>
+                            <p>My default speed is "high." I value efficiency, whether it's mine or the company's. At USC, I saw a more efficient path and compressed my Accounting and Computer Science degrees into three years. This required intense focus, discipline, and an ability to learn and adapt quickly, the same skills needed in a fast-moving startup.</p><br>
+                            <p>In the Events Manager role, this means I will move fast to build this function. I will default to "Why Not End Of Day?" when setting timelines for vendor negotiations, sales team check-ins, and post-event reporting.</p>
+                        </div>
+                    </div>
+                    <!-- Value Card 3: Bring good energy -->
+                    <div class="bg-white p-8 rounded-xl shadow-lg border border-slate-200 text-left flex flex-col">
+                        <div class="value-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M15.182 15.182a4.5 4.5 0 0 1-6.364 0M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0ZM9.75 9.75c0 .414-.168.75-.375.75S9 10.164 9 9.75 9.168 9 9.375 9s.375.336.375.75Zm-.75 0h.008v.015H9v-.015Zm4.5 0c0 .414-.168.75-.375.75s-.375-.336-.375-.75.168-.75.375-.75.375.336.375.75Zm-.75 0h.008v.015H13.5v-.015Z" /></svg>
+                        </div>
+                        <h3 class="text-2xl font-bold text-slate-800">Bring Good Energy</h3>
+                        <div class="text-slate-600 mt-4 leading-relaxed flex-grow">
+                            <p class="italic text-slate-500">TL;DR: I'm a natural team player who brings contagious, positive energy. I genuinely enjoy raising the collective morale of a group and focus on solutions.</p><br>
+                            <p>Good energy is about being a builder and focusing on solutions. I'm one of the hardest workers I know, and I also work to make the team *better* and *happier*. I thrive on collaborating with awesome people, getting buy-in on the mission, and keeping morale high. This is especially critical for an Events Manager, who is the "face" of the company to both internal sales teams and external restaurant partners.</p><br>
+                            <p>I also practice "good energy" by actively seeking candid feedback. In martial arts, I constantly asked opposing senseis for critiques. It was difficult, but I knew it was the fastest path to growth. I see feedback as a sign of caring and optimism, which is the core of good energy.</p>
+                        </div>
+                    </div>
+                    <!-- Value Card 4: Scale yourself -->
+                    <div class="bg-white p-8 rounded-xl shadow-lg border border-slate-200 text-left flex flex-col">
+                        <div class="value-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="m4.5 19.5 15-15m0 0H8.25m11.25 0v11.25" /></svg>
+                        </div>
+                        <h3 class="text-2xl font-bold text-slate-800">Scale Yourself</h3>
+                        <div class="text-slate-600 mt-4 leading-relaxed flex-grow">
+                            <p class="italic text-slate-500">TL;DR: I am a "quick and eager learner" who actively seeks out hard lessons. When I got my first 'C' in a Java course, I went beyond passing the class: I doubled down, mastered the material, and became the TA for it one semester later.</p><br>
+                            <p>To me, "scaling yourself" means learning fast and turning weaknesses into strengths. My journey to becoming a TA is my favorite example. I was completely out of my element, but I embraced the challenge, inhaled the information, and not only improved my own skills but put myself in a position to teach others. That's how I approach every new challenge.</p><br>
+                            <p>My legal training also taught me how to scale. It trained me to synthesize massive amounts of complex information into clear, logical, and compelling memos. This is the exact skill needed to build a *scalable* events program: creating clear playbooks and ROI reports that everyone on the team can use to learn and execute.</p>
+                        </div>
+                    </div>
+                    <!-- Value Card 5: Build as an Owner -->
+                    <div class="bg-white p-8 rounded-xl shadow-lg border border-slate-200 text-left flex flex-col">
+                        <div class="value-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M2.25 18 9 11.25l4.306 4.306a11.95 11.95 0 0 1-1.414 1.414l-2.12-2.121a3 3 0 0 0-4.243 0L2.25 18Z" /><path stroke-linecap="round" stroke-linejoin="round" d="m6.75 15.75 2.25-2.25a4.5 4.5 0 0 1 6.364 0l2.25 2.25" /><path stroke-linecap="round" stroke-linejoin="round" d="M12 21a9.004 9.004 0 0 0 8.716-6.747M12 21a9.004 9.004 0 0 1-8.716-6.747M12 21c.24 0 .468.02.69.058M12 21c-.24 0-.468.02-.69.058m0-3.112c.692-.148 1.42-.296 2.19-.404m-2.19.404c-.692-.148-1.42-.296-2.19-.404m5.624 3.112a9.004 9.004 0 0 1-5.624 0M12 3v5.708m0 0c.24.02.468.058.69.148m-.69-.148a8.962 8.962 0 0 0-2.19.404m2.19-.404C12.692 8.356 13.42 8.504 14.19 8.61M12 3c.24.02.468.058.69.148m-.69-.148a8.962 8.962 0 0 1-2.19.404m2.19-.404C11.308 8.356 10.58 8.504 9.81 8.61m5.624-2.502a9.004 9.004 0 0 1 5.624 0M12 3v5.708m0 0c-.24.02-.468.058-.69.148m.69-.148a8.962 8.962 0 0 1 2.19.404m-2.19-.404C11.308 8.356 10.58 8.504 9.81 8.61M12 3c-.24.02-.468.058-.69.148m.69-.148a8.962 8.962 0 0 0 2.19.404m-2.19-.404C12.692 8.356 13.42 8.504 14.19 8.61" /></svg>
+                        </div>
+                        <h3 class="text-2xl font-bold text-slate-800">Build as an Owner</h3>
+                        <div class="text-slate-600 mt-4 leading-relaxed flex-grow">
+                            <p class="italic text-slate-500">TL;DR: I've always operated as an owner in every role. I don't just take initiative; I take full responsibility. As President of a student organization, I took ownership and grew our budget by 300%.</p><br>
+                            <p>This is the value that defines me. Growing up in my family's business, I always did what needed to be done. When I saw a wrongful lawsuit threatening our livelihood, I took ownership and learned contract law to fight it.</p><br>
+                            <p>I bring this builder's mindset to everything. As President of a student organization, I saw an opportunity beyond the existing budget. I took ownership, identified new funding sources, and grew our budget by 300%. The job description calls for someone to "build an events function from the ground up" and "own strategy, operations, and execution." That is exactly what I am built to do.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Best Qualities Section -->
+        <section id="best-qualities" class="bg-white border-y border-slate-200">
+            <div class="container mx-auto px-6 py-24">
+                <div class="max-w-5xl mx-auto">
+                    <div class="text-center mb-16">
+                         <h2 class="text-3xl md:text-4xl font-bold text-slate-900">My Best Qualities</h2>
+                         <p class="mt-4 max-w-2xl mx-auto text-slate-600">These are the personal attributes I bring to every team and every challenge.</p>
+                    </div>
+
+                    <div class="grid md:grid-cols-2 gap-8">
+                        <!-- Quality Card 1 -->
+                        <div class="bg-slate-50 p-8 rounded-xl border border-slate-200 text-left">
+                            <h3 class="text-xl font-bold text-slate-800">Ability to Listen</h3>
+                            <p class="text-slate-600 mt-4">I listen to truly understand, not just to respond. This helps me learn quickly, collaborate effectively, and make my colleagues feel heard and valued.</p>
+                        </div>
+                        <!-- Quality Card 2 -->
+                        <div class="bg-slate-50 p-8 rounded-xl border border-slate-200 text-left">
+                             <h3 class="text-xl font-bold text-slate-800">Energy</h3>
+                            <p class="text-slate-600 mt-4">I bring a contagious, positive energy to every room I enter. People feel my kindness and positivity. I genuinely enjoy raising the collective morale and ceiling of the group.</p>
+                        </div>
+                        <!-- Quality Card 3 -->
+                        <div class="bg-slate-50 p-8 rounded-xl border border-slate-200 text-left">
+                            <h3 class="text-xl font-bold text-slate-800">Quick & Eager Learner</h3>
+                            <p class="text-slate-600 mt-4">Learning how to learn quickly is one of the highest ROI skills I've developed. Paired with a genuine eagerness, I inhale information, which will help me contribute to the team immediately.</p>
+                        </div>
+                        <!-- Quality Card 4 -->
+                        <div class="bg-slate-50 p-8 rounded-xl border border-slate-200 text-left">
+                            <h3 class="text-xl font-bold text-slate-800">Detail Oriented</h3>
+                            <p class="text-slate-600 mt-4">My experiences in law and computer programming have trained me to be meticulous. I understand that every detail matters, a lesson reinforced by a childhood deal with my mom: $10 for every silly math mistake. I never made one again.</p>
+                        </div>
+                        <!-- Quality Card 5 -->
+                        <div class="bg-slate-50 p-8 rounded-xl border border-slate-200 text-left">
+                            <h3 class="text-xl font-bold text-slate-800">Hard Worker</h3>
+                            <p class="text-slate-600 mt-4">I am one of the hardest workers I know and am eager to do whatever it takes to help the team win. I also reflect on my progress daily to do more of what's working, ensuring I work smart, not just hard.</p>
+                        </div>
+                        <!-- Quality Card 6 -->
+                        <div class="bg-slate-50 p-8 rounded-xl border border-slate-200 text-left">
+                            <h3 class="text-xl font-bold text-slate-800">Team Player</h3>
+                            <p class="text-slate-600 mt-4">I thrive on working with awesome people and focus on the intangibles that make a team both fun and productive. I work to get buy-in on the mission, facilitate clear communication, and keep morale high.</p>
+                        </div>
+                        <!-- Quality Card 7 -->
+                        <div class="bg-slate-50 p-8 rounded-xl border border-slate-200 text-left">
+                            <h3 class="text-xl font-bold text-slate-800">Professional</h3>
+                            <p class="text-slate-600 mt-4">I've spent thousands of hours interacting with high-profile clients and understand how to conduct myself with a high degree of professionalism, clarity, and precision.</p>
+                        </div>
+                        <!-- Quality Card 8 -->
+                        <div class="bg-slate-50 p-8 rounded-xl border border-slate-200 text-left">
+                            <h3 class="text-xl font-bold text-slate-800">Good Communicator</h3>
+                            <p class="text-slate-600 mt-4">I listen well, write clearly, and read the room. I do my best to be articulate and easy to understand, and I make no assumptions. I spell things out to make sure everyone is on the same page.</p>
+                        </div>
+                        <!-- Quality Card 9 -->
+                        <div class="bg-slate-50 p-8 rounded-xl border border-slate-200 text-left">
+                            <h3 class="text-xl font-bold text-slate-800">Take Initiative & Responsibility</h3>
+                            <p class="text-slate-600 mt-4">I take it upon myself to think ahead and act accordingly. I'm generally the first to offer help or execute on a new idea. If things go south, I'll be the first to take responsibility and find solutions.</p>
+                        </div>
+                        <!-- Quality Card 10 -->
+                        <div class="bg-slate-50 p-8 rounded-xl border border-slate-200 text-left">
+                            <h3 class="text-xl font-bold text-slate-800">Manage Priorities Well</h3>
+                            <p class="text-slate-600 mt-4">Growing up juggling work, competitive sports, and academics taught me how to balance many tasks and work ahead of schedule. In challenging situations, I'm the one who stays calm and de-escalates.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Humility Note Section -->
+        <section id="humility-note" class="container mx-auto px-6 pt-16">
+            <div class="max-w-3xl mx-auto text-center bg-white p-6 rounded-xl border border-slate-200">
+                <p class="text-slate-600 italic">A quick final note: I’m generally quite humble, but I've been super straightforward with my strengths in this application. We don’t have the luxury of getting to know each other over the course of days or weeks, so I wanted to be as clear as possible about the value I can bring to the team.</p>
+            </div>
+        </section>
+        
+        <!-- Section: Next Page -->
+        <section id="next-page" class="section-compact bg-white border-t border-slate-200 mt-16">
+            <div class="container mx-auto px-6 text-center">
+                <!-- UPDATED: Next page link -->
+                <h2 class="text-2xl font-bold text-slate-800">Ready to see my plan of action?</h2>
+                <p class="mt-2 text-slate-600 max-w-2xl mx-auto">The next page outlines my 90-day plan to build your events function from the ground up.</p>
+                <div class="mt-8 flex flex-col sm:flex-row items-center justify-center gap-4">
+                    <a href="plan.html" class="w-full sm:w-auto flex items-center justify-center gap-x-3 bg-blue-600 text-white font-semibold py-3 px-8 rounded-lg hover:bg-blue-700 transition-colors text-lg shadow-md hover:shadow-lg transform hover:-translate-y-1">
+                        View My 90-Day Plan
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-slate-100 border-t border-slate-200">
+        <div class="container mx-auto px-6 py-8 text-center text-slate-500">
+            <p class="font-semibold text-slate-700">Walter Petrouchin</p>
+            <p class="text-sm">
+                <a href="mailto:walter.petr@yahoo.com" class="hover:text-blue-600 transition-colors">walter.petr@yahoo.com</a> | (310) 874-4247
+            </p>
+            <p class="text-sm mt-1">
+                <a href="https://www.linkedin.com/in/walterpetrouchin/" target="_blank" rel="noopener noreferrer" class="text-blue-600 hover:underline">LinkedIn Profile</a>
+            </p>
+        </div>
+    </footer>
+
+    <!-- JavaScript for interactivity -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            
+            // --- Mobile Menu Logic ---
+            const mobileMenuButton = document.getElementById('mobile-menu-button');
+            const mobileMenu = document.getElementById('mobile-menu');
+            const mobileMenuLinks = mobileMenu.querySelectorAll('a');
+
+            const toggleMobileMenu = () => {
+                const isMenuOpen = !mobileMenu.classList.contains('pointer-events-none');
+                if (isMenuOpen) {
+                    mobileMenu.classList.add('opacity-0');
+                    setTimeout(() => {
+                        mobileMenu.classList.add('pointer-events-none');
+                        document.body.style.overflow = 'auto';
+                    }, 300);
+                } else {
+                    mobileMenu.classList.remove('opacity-0', 'pointer-events-none');
+                    document.body.style.overflow = 'hidden';
+                }
+            };
+
+            if (mobileMenuButton && mobileMenu) {
+                mobileMenuButton.addEventListener('click', toggleMobileMenu);
+                mobileMenuLinks.forEach(link => link.addEventListener('click', toggleMobileMenu));
+                mobileMenu.addEventListener('click', (event) => {
+                    if (event.target === mobileMenu) toggleMobileMenu();
+                });
+                window.addEventListener('keydown', (e) => {
+                    const isMenuOpen = !mobileMEnu.classList.contains('pointer-events-none');
+                    if (e.key === 'Escape' && isMenuOpen) toggleMobileMenu();
+                });
+            }
+        });
+    </script
