@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Goals | Walter Petrouchin</title>
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f8fafc; /* slate-50 */
+            color: #0f172a; /* slate-900 */
+        }
+        .section-compact {
+            min-height: auto;
+            padding-top: 6rem;
+            padding-bottom: 6rem;
+        }
+        .glass-effect {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid rgba(0, 0, 0, 0.05);
+        }
+        /* Mobile Menu Transition */
+        #mobile-menu {
+            transition: opacity 0.3s ease-in-out;
+        }
+        /* Goal card hover effect */
+        .goal-card {
+            transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+        }
+        .goal-card:hover {
+            transform: scale(1.02);
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+</head>
+<body class="antialiased">
+
+    <header id="main-header" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 glass-effect shadow-lg">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="/" class="text-xl font-bold tracking-wider text-slate-800">WALTER PETROUCHIN</a>
+            
+             <!-- UPDATED: Navigation for Owner.com role -->
+            <nav class="hidden lg:flex items-center space-x-6 text-sm font-medium text-slate-600">
+                <a href="/" class="hover:text-blue-600 transition-colors">Home</a>
+                <a href="resume.html" class="hover:text-blue-600 transition-colors">Resume & Story</a>
+                <a href="events.html" class="hover:text-blue-600 transition-colors">Events</a>
+                <a href="fit.html" class="hover:text-blue-600 transition-colors">Fit</a>
+                <a href="plan.html" class="text-blue-600 font-semibold transition-colors">90-Day Plan</a>
+                <a href="fun.html" class="hover:text-blue-600 transition-colors">Beyond Work</a>
+                <a href="thankyou.html" class="hover:text-blue-600 transition-colors">Thank You</a>
+            </nav>
+
+            <div class="lg:hidden">
+                <button id="mobile-menu-button" class="text-slate-800 focus:outline-none z-50">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </header>
+
+     <!-- UPDATED: Mobile Menu Overlay -->
+    <div id="mobile-menu" class="fixed inset-0 z-40 bg-white/95 backdrop-blur-lg flex flex-col items-center justify-center space-y-6 opacity-0 pointer-events-none lg:hidden">
+        <a href="/" class="text-2xl font-semibold text-slate-800">Home</a>
+        <a href="resume.html" class="text-2xl font-semibold text-slate-800">Resume & Story</a>
+        <a href="events.html" class="text-2xl font-semibold text-slate-800">Events</a>
+        <a href="fit.html" class="text-2xl font-semibold text-slate-800">Fit</a>
+        <a href="plan.html" class="text-2xl font-semibold text-blue-600">90-Day Plan</a>
+        <a href="fun.html" class="text-2xl font-semibold text-slate-800">Beyond Work</a>
+        <a href="thankyou.html" class="text-2xl font-semibold text-slate-800">Thank You</a>
+    </div>
+
+
+    <main class="pt-32">
+        <!-- UPDATED: Intro text -->
+        <section id="intro" class="container mx-auto px-6 text-center">
+            <div class="max-w-3xl mx-auto">
+                <h1 class="text-4xl md:text-5xl font-extrabold tracking-tight text-slate-900">My Goals & Plan</h1>
+                <p class="mt-4 text-lg text-slate-600">
+                   I am excited by the opportunity to build Owner.com's event function from the ground up. Here is my proactive plan for the first 90 days and my long term aspirations for driving pipeline growth and building community.
+                </p>
+            </div>
+        </section>
+        
+        <!-- UPDATED: 90-Day Plan for Events Manager Role -->
+        <section id="short-term-goals" class="container mx-auto px-6 pt-24 pb-16">
+            <div class="max-w-4xl mx-auto">
+                <div class="text-center mb-16">
+                    <h2 class="text-3xl md:text-4xl font-bold text-slate-900">My First 90 Days: Building the Events Engine</h2>
+                    <p class="mt-4 max-w-2xl mx-auto text-slate-600">Assuming I earn the role, here is how I plan to approach building the events function to create immediate and measurable impact.</p>
+                </div>
+                <div class="grid grid-cols-1 gap-8 text-left">
+                    <!-- 30 Days -->
+                    <div class="goal-card bg-white p-8 rounded-xl shadow-lg border border-slate-200">
+                        <div class="text-blue-600 font-bold text-lg text-center">First 30 Days</div>
+                        <h3 class="text-2xl font-semibold mt-2 text-slate-800 text-center">Foundation & Alignment</h3>
+                        <ul class="text-slate-600 mt-6 space-y-4 list-disc list-inside">
+                            <li><strong>Deep Dive into Owner.com:</strong> Immerse myself in Owner.com's products, target customer (independent restaurants), brand voice, sales process, and existing marketing initiatives. Understand the key value propositions and success metrics.</li>
+                            <li><strong>Connect with Stakeholders:</strong> Meet extensively with Sales leadership, key Sales/Partnership team members, Marketing/Growth leadership (especially David Fallarme), and relevant agencies to understand pipeline goals, target segments, past event experiences, and immediate needs.</li>
+                            <li><strong>Audit & Research:</strong> Analyze competitor event strategies and identify best practices in field/experiential marketing within the SMB tech and restaurant tech spaces. Research potential event formats (trade shows, dinners, pop-ups) relevant to the target audience.</li>
+                            <li><strong>Develop Initial Framework:</strong> Draft a preliminary framework for the events function, outlining potential event types, key performance indicators (KPIs) focused on pipeline generation/acceleration, and proposed budget allocation principles.</li>
+                            <li><strong>Establish Communication Cadence:</strong> Set up regular check ins with Sales and Marketing leadership to ensure alignment and transparency from day one.</li>
+                        </ul>
+                    </div>
+                     <!-- 60 Days -->
+                    <div class="goal-card bg-white p-8 rounded-xl shadow-lg border border-slate-200">
+                        <div class="text-blue-600 font-bold text-lg text-center">First 60 Days</div>
+                        <h3 class="text-2xl font-semibold mt-2 text-slate-800 text-center">Strategy & Initial Execution</h3>
+                        <ul class="text-slate-600 mt-6 space-y-4 list-disc list-inside">
+                            <li><strong>Finalize Q1 Event Strategy & Calendar:</strong> Based on initial findings and stakeholder input, finalize the event strategy for the upcoming quarter, including specific event choices, target audiences, pipeline goals, and budget. Create a detailed event calendar.</li>
+                            <li><strong>Build Event Playbooks:</strong> Develop standardized playbooks for key event types (e.g., trade show booth activation, small format dinner), outlining processes for planning, execution, sales collaboration, lead capture, and follow up.</li>
+                            <li><strong>Select & Manage Vendors/Agencies:</strong> Identify, vet, and establish relationships with necessary external partners (agencies, venues, tech providers) for initial event execution.</li>
+                            <li><strong>Launch First Event(s):</strong> Execute the first 1-2 events according to the plan, focusing on seamless logistics, strong sales team integration, positive attendee experience, and effective lead capture/qualification.</li>
+                            <li><strong>Implement Measurement System:</strong> Set up the initial system for tracking key event metrics: lead generation, pipeline influence, deal acceleration, attendee engagement, and preliminary ROI. Define reporting structure.</li>
+                        </ul>
+                    </div>
+                    <!-- 90 Days -->
+                    <div class="goal-card bg-white p-8 rounded-xl shadow-lg border border-slate-200">
+                        <div class="text-blue-600 font-bold text-lg text-center">First 90 Days</div>
+                        <h3 class="text-2xl font-semibold mt-2 text-slate-800 text-center">Optimization & Scalability</h3>
+                        <ul class="text-slate-600 mt-6 space-y-4 list-disc list-inside">
+                            <li><strong>Analyze Initial Event Performance:</strong> Conduct thorough post event analysis for the first events executed. Gather feedback from Sales, attendees, and stakeholders. Report on initial KPIs and ROI.</li>
+                            <li><strong>Refine Strategy & Playbooks:</strong> Based on initial results and feedback, iterate on the event strategy, playbooks, and processes. Identify areas for improvement in efficiency, impact, and cost effectiveness.</li>
+                            <li><strong>Develop Q2 Event Plan:</strong> Begin planning the event strategy and calendar for the following quarter, incorporating learnings from the first 90 days and aligning with evolving Sales/Marketing goals.</li>
+                            <li><strong>Build Internal Processes:</strong> Formalize internal processes for event requests, budget management, cross functional collaboration (Sales, Marketing, Brand), and reporting.</li>
+                            <li><strong>Present 90-Day Review & Future Roadmap:</strong> Deliver a comprehensive review of the first 90 days, highlighting key accomplishments, learnings, initial ROI metrics, and a clear roadmap for scaling the events function moving forward.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- UPDATED: Long Term Goals for Events Manager Role -->
+        <section id="long-term-goals" class="bg-white border-y border-slate-200">
+            <div class="container mx-auto px-6 py-24">
+                <div class="max-w-3xl mx-auto text-center">
+                    <h2 class="text-3xl md:text-4xl font-bold text-slate-900">Long Term Aspirations</h2>
+                    <p class="mt-4 text-slate-600">Beyond the first 90 days, my ambitions focus on building a world class events program, contributing to Owner.com's growth, and developing as a leader.</p>
+                    <div class="mt-8 text-left space-y-6 text-slate-600 bg-slate-50 p-8 rounded-xl border border-slate-200">
+                        <p><strong>Build a Scalable Events Engine:</strong> My primary goal is to establish a highly effective, data driven, and scalable events function that consistently generates significant pipeline and strengthens Owner.com's brand presence within the independent restaurant community.</p>
+                        <p><strong>Master Restaurant Tech Event Marketing:</strong> Become a leading expert in event marketing specifically for the restaurant technology space, understanding the unique channels, messages, and experiences that resonate with independent owners.</p>
+                        <p><strong>Grow with Owner.com:</strong> I am joining Owner.com with the intention of building my career here. I aim to grow the impact of the events program significantly and earn opportunities for greater marketing leadership as the company scales globally and expands into other local business types.</p>
+                        <p><strong>Build a Family:</strong> Outside of my professional ambitions, a core part of my life's vision is to get married and raise a family, building a strong and loving home.</p>
+                        <p><strong>Maintain Health & Vitality:</strong> I am committed to maintaining excellent physical and mental health. This is crucial for sustaining the high energy and focus required to perform at peak level and bring good energy to the team.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- UPDATED: Learning Goals for Events Manager Role -->
+        <section id="learning-goals" class="py-24 bg-slate-50">
+            <div class="container mx-auto px-6">
+                <div class="max-w-4xl mx-auto">
+                    <div class="text-center mb-16">
+                        <h2 class="text-3xl md:text-4xl font-bold text-slate-900">Immediate Learning & Growth Areas</h2>
+                        <p class="mt-4 max-w-2xl mx-auto text-slate-600">These are key areas where I'm excited to deepen my expertise at Owner.com, applying my quick learning ability.</p>
+                    </div>
+                    <div class="max-w-2xl mx-auto grid md:grid-cols-2 gap-8 text-center">
+                        <!-- Goal 1: Event ROI -->
+                        <div class="goal-card bg-white p-8 rounded-xl shadow-lg border border-slate-200 flex flex-col items-center">
+                            <div class="flex-shrink-0">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12 text-blue-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                     <path stroke-linecap="round" stroke-linejoin="round" d="M11 3.055A9.001 9.001 0 1 0 20.945 13H11V3.055z" />
+                                     <path stroke-linecap="round" stroke-linejoin="round" d="M20.488 9H15V3.512A9.025 9.025 0 0 1 20.488 9z" />
+                                </svg>
+                            </div>
+                            <h3 class="text-xl font-semibold mt-4 text-slate-800">Advanced Event ROI Measurement</h3>
+                            <p class="text-slate-600 mt-2">Master best practices for tracking and attributing pipeline influence, deal acceleration, and revenue contribution specifically from field marketing events.</p>
+                        </div>
+                        <!-- Goal 2: Restaurant Industry Trends -->
+                        <div class="goal-card bg-white p-8 rounded-xl shadow-lg border border-slate-200 flex flex-col items-center">
+                             <div class="flex-shrink-0">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12 text-blue-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                   <path stroke-linecap="round" stroke-linejoin="round" d="M19.428 15.428a2 2 0 0 0-1.022-.547l-2.387-.477a6 6 0 0 0-3.86.517l-.318.158a6 6 0 0 1-3.86.517L6.05 15.24a2 2 0 0 0-1.806.547a2 2 0 0 0-.547 1.806l.477 2.387a6 6 0 0 0 .517 3.86l.158.318a6 6 0 0 0 .517 3.86l2.387.477a2 2 0 0 0 1.806-.547a2 2 0 0 0 .547-1.806l-.477-2.387a6 6 0 0 0-.517-3.86l-.158-.318a6 6 0 0 1-.517-3.86l-.477-2.387a2 2 0 0 1 .547-1.806Z" />
+                                   <path stroke-linecap="round" stroke-linejoin="round" d="M12 6.75h.008v.008H12V6.75Z" />
+                                 </svg>                                
+                            </div>
+                            <h3 class="text-xl font-semibold mt-4 text-slate-800">Restaurant Industry & Event Trends</h3>
+                            <p class="text-slate-600 mt-2">Deepen my understanding of the challenges and opportunities facing independent restaurants, and stay ahead of innovative event formats and activation strategies relevant to this audience.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- UPDATED: Next Page Link -->
+        <section id="next-page" class="section-compact bg-white border-t border-slate-200">
+            <div class="container mx-auto px-6 text-center">
+                <h2 class="text-2xl font-bold text-slate-800">Curious about who I am beyond the work?</h2>
+                <p class="mt-2 text-slate-600">The next page offers a glimpse into my life and passions.</p>
+                <div class="mt-8">
+                    <a href="fun.html" class="inline-flex items-center justify-center gap-x-3 bg-blue-600 text-white font-semibold py-3 px-8 rounded-lg hover:bg-blue-700 transition-colors text-lg shadow-md hover:shadow-lg transform hover:-translate-y-1">
+                        See My Fun Side :)
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+    </main>
+    
+    <!-- Footer -->
+    <footer class="bg-slate-100 border-t border-slate-200">
+        <div class="container mx-auto px-6 py-8 text-center text-slate-500">
+            <p class="font-semibold text-slate-700">Walter Petrouchin</p>
+            <p class="text-sm">
+                <a href="mailto:walter.petr@yahoo.com" class="hover:text-blue-600 transition-colors">walter.petr@yahoo.com</a> | (310) 874-4247
+            </p>
+            <p class="text-sm mt-1">
+                <a href="https://www.linkedin.com/in/walterpetrouchin/" target="_blank" rel="noopener noreferrer" class="text-blue-600 hover:underline">LinkedIn Profile</a>
+            </p>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            
+            // --- Mobile Menu Logic ---
+            const mobileMenuButton = document.getElementById('mobile-menu-button');
+            const mobileMenu = document.getElementById('mobile-menu');
+            const mobileMenuLinks = mobileMenu.querySelectorAll('a');
+
+            const toggleMobileMenu = () => {
+                const isMenuOpen = !mobileMenu.classList.contains('pointer-events-none');
+                if (isMenuOpen) {
+                    mobileMenu.classList.add('opacity-0');
+                    setTimeout(() => {
+                        mobileMenu.classList.add('pointer-events-none');
+                        document.body.style.overflow = 'auto';
+                    }, 300);
+                } else {
+                    mobileMenu.classList.remove('opacity-0', 'pointer-events-none');
+                    document.body.style.overflow = 'hidden';
+                }
+            };
+
+            if (mobileMenuButton && mobileMenu) {
+                mobileMenuButton.addEventListener('click', toggleMobileMenu);
+                mobileMenuLinks.forEach(link => link.addEventListener('click', toggleMobileMenu));
+                mobileMenu.addEventListener('click', (event) => {
+                    if (event.target === mobileMenu) toggleMobileMenu();
+                });
+                window.addEventListener('keydown', (e) => {
+                    const isMenuOpen = !mobileMenu.classList.contains('pointer-events-none');
+                    if (e.key === 'Escape' && isMenuOpen) toggleMobileMenu();
+                });
+            }
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- UPDATED: Title -->
+    <title>Event Examples | Walter Petrouchin</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts: Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    
+    <!-- Custom CSS for styling and animations -->
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f8fafc; /* slate-50 */
+            color: #0f172a; /* slate-900 */
+        }
+        .section-compact {
+            min-height: auto;
+            padding-top: 6rem;
+            padding-bottom: 6rem;
+        }
+        .glass-effect {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid rgba(0, 0, 0, 0.05);
+        }
+        #mobile-menu {
+            transition: opacity 0.3s ease-in-out;
+        }
+
+        /* --- NEW: Carousel Styles --- */
+        .carousel-container {
+            position: relative;
+            max-width: 800px; /* Adjust max-width as needed */
+            margin: auto;
+            overflow: hidden; /* Ensures arrows stay contained if absolutely positioned */
+        }
+        .carousel-image-wrapper {
+            background-color: #e2e8f0; /* slate-200 for loading bg */
+            border-radius: 0.75rem; /* rounded-xl */
+            overflow: hidden;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -4px rgba(0, 0, 0, 0.1);
+             border: 1px solid #cbd5e1; /* slate-300 */
+             aspect-ratio: 16 / 10; /* Adjust aspect ratio */
+             display: flex;
+             align-items: center;
+             justify-content: center;
+        }
+        .carousel-image {
+            display: block;
+            width: 100%;
+            height: 100%;
+            object-fit: cover; /* Cover ensures image fills the container */
+            transition: opacity 0.5s ease-in-out;
+        }
+         .carousel-image.loading {
+            opacity: 0.5;
+        }
+        .carousel-description {
+            margin-top: 1.5rem; /* mt-6 */
+            padding: 1rem; /* p-4 */
+            text-align: center;
+            min-height: 100px; /* Ensure space for text */
+            background-color: #ffffff; /* white bg */
+            border-radius: 0.75rem; /* rounded-xl */
+            border: 1px solid #e2e8f0; /* slate-200 */
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -2px rgba(0, 0, 0, 0.05);
+        }
+         .carousel-description h3 {
+             font-size: 1.25rem; /* text-xl */
+             font-weight: 700; /* font-bold */
+             color: #1e293b; /* slate-800 */
+             margin-bottom: 0.5rem; /* mb-2 */
+         }
+         .carousel-description p {
+             color: #475569; /* slate-600 */
+             line-height: 1.6;
+         }
+
+        .carousel-arrow {
+            position: absolute;
+            top: 45%; /* Vertically center relative to image */
+            transform: translateY(-50%);
+            z-index: 10;
+            background-color: rgba(255, 255, 255, 0.8); /* Semi-transparent white */
+            color: #0f172a; /* slate-900 */
+            border: none;
+            border-radius: 9999px; /* rounded-full */
+            width: 3rem; /* w-12 */
+            height: 3rem; /* h-12 */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: background-color 0.2s ease, box-shadow 0.2s ease;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.06);
+        }
+        .carousel-arrow:hover {
+            background-color: white;
+        }
+         .carousel-arrow:disabled {
+             opacity: 0.4;
+             cursor: not-allowed;
+         }
+        .carousel-arrow svg {
+            width: 1.5rem; /* w-6 */
+            height: 1.5rem; /* h-6 */
+        }
+        .carousel-arrow.prev {
+            left: 1rem; /* Adjust positioning */
+        }
+        .carousel-arrow.next {
+            right: 1rem; /* Adjust positioning */
+        }
+        
+        /* Optional: Add dots for navigation */
+        .carousel-dots {
+            text-align: center;
+            margin-top: 1rem;
+        }
+        .carousel-dot {
+            display: inline-block;
+            width: 0.75rem; /* w-3 */
+            height: 0.75rem; /* h-3 */
+            background-color: #cbd5e1; /* slate-300 */
+            border-radius: 9999px; /* rounded-full */
+            margin: 0 0.25rem; /* mx-1 */
+            cursor: pointer;
+            transition: background-color 0.2s ease;
+        }
+        .carousel-dot.active {
+            background-color: #2563eb; /* blue-600 */
+        }
+        .carousel-dot:hover {
+            background-color: #94a3b8; /* slate-400 */
+        }
+
+
+    </style>
+</head>
+<body class="antialiased">
+
+    <!-- Navigation Header -->
+    <header id="main-header" class="fixed top-0 left-0 right-0 z-40 transition-all duration-300 glass-effect shadow-lg">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="/" class="text-xl font-bold tracking-wider text-slate-800">WALTER PETROUCHIN</a>
+             <!-- UPDATED: Navigation for Owner.com role -->
+            <nav class="hidden lg:flex items-center space-x-6 text-sm font-medium text-slate-600">
+                <a href="/" class="hover:text-blue-600 transition-colors">Home</a>
+                <a href="resume.html" class="hover:text-blue-600 transition-colors">Resume & Story</a>
+                <a href="events.html" class="text-blue-600 font-semibold transition-colors">Events</a>
+                <a href="fit.html" class="hover:text-blue-600 transition-colors">Fit</a>
+                <a href="plan.html" class="hover:text-blue-600 transition-colors">90-Day Plan</a>
+                <a href="fun.html" class="hover:text-blue-600 transition-colors">Beyond Work</a>
+                <a href="thankyou.html" class="hover:text-blue-600 transition-colors">Thank You</a>
+            </nav>
+            <div class="lg:hidden">
+                <button id="mobile-menu-button" class="text-slate-800 focus:outline-none z-50">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+                </button>
+            </div>
+        </div>
+    </header>
+
+     <!-- UPDATED: Mobile Menu Overlay -->
+    <div id="mobile-menu" class="fixed inset-0 z-30 bg-white/95 backdrop-blur-lg flex flex-col items-center justify-center space-y-6 opacity-0 pointer-events-none lg:hidden">
+        <a href="/" class="text-2xl font-semibold text-slate-800">Home</a>
+        <a href="resume.html" class="text-2xl font-semibold text-slate-800">Resume & Story</a>
+        <a href="events.html" class="text-2xl font-semibold text-blue-600">Events</a>
+        <a href="fit.html" class="text-2xl font-semibold text-slate-800">Fit</a>
+        <a href="plan.html" class="text-2xl font-semibold text-slate-800">90-Day Plan</a>
+        <a href="fun.html" class="text-2xl font-semibold text-slate-800">Beyond Work</a>
+        <a href="thankyou.html" class="text-2xl font-semibold text-slate-800">Thank You</a>
+    </div>
+
+    <!-- Main Content Section -->
+    <main class="pt-32">
+        <!-- UPDATED: Intro text -->
+        <section id="intro" class="container mx-auto px-6 text-center">
+            <div class="max-w-3xl mx-auto">
+                <h1 class="text-4xl md:text-5xl font-extrabold tracking-tight text-slate-900">Event Work Examples</h1>
+                <p class="mt-4 text-lg text-slate-600">
+                    Talk is cheap. Here are a few examples showcasing my approach to event strategy, execution, and measurement. Use the arrows to navigate through the samples.
+                </p>
+            </div>
+        </section>
+        
+        <!-- NEW: Carousel Section -->
+        <section id="carousel-section" class="container mx-auto px-6 pt-16 pb-16">
+            <div class="carousel-container">
+                
+                <!-- Image Display -->
+                <div class="carousel-image-wrapper">
+                    <img id="carousel-img" src="" alt="Event Deliverable Example" class="carousel-image">
+                </div>
+
+                <!-- Navigation Arrows -->
+                <button id="prev-btn" class="carousel-arrow prev" aria-label="Previous image">
+                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path></svg>
+                </button>
+                <button id="next-btn" class="carousel-arrow next" aria-label="Next image">
+                     <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+                </button>
+
+                 <!-- Description Area -->
+                <div id="carousel-desc" class="carousel-description">
+                    <h3 id="carousel-title"></h3>
+                    <p id="carousel-text"></p>
+                </div>
+                
+                 <!-- Optional: Dots Navigation -->
+                <div id="carousel-dots-container" class="carousel-dots">
+                    <!-- Dots will be generated by JS -->
+                </div>
+            </div>
+        </section>
+
+        <!-- Section: Next Page -->
+        <!-- UPDATED: Next page link -->
+        <section id="next-page" class="section-compact bg-white border-t border-slate-200">
+            <div class="container mx-auto px-6 text-center">
+                <h2 class="text-2xl font-bold text-slate-800">How I align with Owner.com's..</h2>
+                <p class="mt-2 text-slate-600">The next page details my alignment with your core values and mission.</p>
+                <div class="mt-8">
+                     <!-- UPDATED: Button color -->
+                    <a href="fit.html" class="inline-flex items-center justify-center gap-x-3 bg-blue-600 text-white font-semibold py-3 px-8 rounded-lg hover:bg-blue-700 transition-colors text-lg shadow-md hover:shadow-lg transform hover:-translate-y-1">
+                        View Cultural Fit
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-slate-100 border-t border-slate-200">
+        <div class="container mx-auto px-6 py-8 text-center text-slate-500">
+            <p class="font-semibold text-slate-700">Walter Petrouchin</p>
+            <p class="text-sm">
+                <a href="mailto:walter.petr@yahoo.com" class="hover:text-blue-600 transition-colors">walter.petr@yahoo.com</a> | (310) 874-47
+            </p>
+            <p class="text-sm mt-1">
+                <a href="https://www.linkedin.com/in/walterpetrouchin/" target="_blank" rel="noopener noreferrer" class="text-blue-600 hover:underline">LinkedIn Profile</a>
+            </p>
+        </div>
+    </footer>
+
+    <!-- JavaScript for interactivity -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // --- Mobile Menu Logic ---
+            // ... (same as previous files) ...
+             const mobileMenuButton = document.getElementById('mobile-menu-button');
+            const mobileMenu = document.getElementById('mobile-menu');
+            const toggleMobileMenu = () => {
+                const isMenuOpen = !mobileMenu.classList.contains('pointer-events-none');
+                if (isMenuOpen) {
+                    mobileMenu.classList.add('opacity-0', 'pointer-events-none');
+                    document.body.style.overflow = 'auto';
+                } else {
+                    mobileMenu.classList.remove('opacity-0', 'pointer-events-none');
+                    document.body.style.overflow = 'hidden';
+                }
+            };
+            if (mobileMenuButton && mobileMenu) {
+                mobileMenuButton.addEventListener('click', toggleMobileMenu);
+                mobileMenu.querySelectorAll('a').forEach(link => link.addEventListener('click', toggleMobileMenu));
+                mobileMenu.addEventListener('click', (event) => {
+                     if (event.target === mobileMenu) toggleMobileMenu();
+                });
+                 window.addEventListener('keydown', (e) => {
+                    const isMenuOpen = !mobileMenu.classList.contains('pointer-events-none');
+                    if (e.key === 'Escape' && isMenuOpen) toggleMobileMenu();
+                });
+            }
+
+
+            // --- NEW: Carousel Logic ---
+            const deliverables = [
+                { 
+                    // TODO: Replace with your actual image URL
+                    imageUrl: "https://placehold.co/800x500/dbeafe/1e3a8a?text=Event+Playbook+Snippet", 
+                    title: "Example: Trade Show Playbook",
+                    // TODO: Replace with your actual description
+                    description: "This snippet shows the pre-event checklist and sales team briefing section from a playbook I developed for maximizing ROI at industry trade shows. It emphasizes clear roles, lead capture process, and post-show follow-up cadence." 
+                },
+                { 
+                    // TODO: Replace with your actual image URL
+                    imageUrl: "https://placehold.co/800x500/bfdbfe/1e40af?text=ROI+Dashboard+Mockup", 
+                    title: "Example: Event ROI Dashboard",
+                     // TODO: Replace with your actual description
+                    description: "A mockup of a dashboard I designed to track key event KPIs, including leads generated, pipeline influenced (by stage), cost per lead, cost per opportunity, and estimated ROI based on average deal size and close rates." 
+                },
+                { 
+                    // TODO: Replace with your actual image URL
+                    imageUrl: "https://placehold.co/800x500/93c5fd/1d4ed8?text=Event+Photo+Highlights", 
+                    title: "Example: Small Dinner Event Execution",
+                    // TODO: Replace with your actual description
+                    description: "Highlights from a series of small-format dinners hosted for key prospects. These events focused on creating an intimate, high-value experience, resulting in accelerated deal cycles and strong relationship building." 
+                }
+            ];
+
+            let currentIndex = 0;
+            const imgElement = document.getElementById('carousel-img');
+            const titleElement = document.getElementById('carousel-title');
+            const textElement = document.getElementById('carousel-text');
+            const prevButton = document.getElementById('prev-btn');
+            const nextButton = document.getElementById('next-btn');
+            const dotsContainer = document.getElementById('carousel-dots-container');
+
+            function showDeliverable(index) {
+                if (index < 0 || index >= deliverables.length) return;
+                
+                const deliverable = deliverables[index];
+                
+                // Add loading state
+                imgElement.classList.add('loading');
+                imgElement.style.opacity = '0.5';
+
+                // Preload image
+                const tempImage = new Image();
+                tempImage.onload = () => {
+                     // Update content after image is loaded
+                    imgElement.src = deliverable.imageUrl;
+                    imgElement.alt = deliverable.title; // Update alt text
+                    titleElement.textContent = deliverable.title;
+                    textElement.textContent = deliverable.description;
+                    currentIndex = index;
+
+                     // Remove loading state
+                    imgElement.classList.remove('loading');
+                    imgElement.style.opacity = '1';
+
+                    updateControls();
+                };
+                 tempImage.onerror = () => {
+                     // Handle image loading error (optional: show placeholder)
+                     console.error("Error loading image:", deliverable.imageUrl);
+                     // You could set a default placeholder image here
+                      imgElement.src = `https://placehold.co/800x500/fecaca/7f1d1d?text=Error+Loading+Image`; // Example error placeholder
+                      imgElement.alt = "Error loading image";
+                      titleElement.textContent = deliverable.title;
+                      textElement.textContent = deliverable.description;
+                      currentIndex = index;
+                      imgElement.classList.remove('loading');
+                      imgElement.style.opacity = '1';
+                      updateControls();
+                 };
+                tempImage.src = deliverable.imageUrl; // Start loading
+            }
+            
+            function updateControls() {
+                 // Update Arrows
+                prevButton.disabled = currentIndex === 0;
+                nextButton.disabled = currentIndex === deliverables.length - 1;
+                
+                 // Update Dots
+                dotsContainer.innerHTML = ''; // Clear existing dots
+                deliverables.forEach((_, index) => {
+                    const dot = document.createElement('button');
+                    dot.classList.add('carousel-dot');
+                    dot.setAttribute('aria-label', `Go to slide ${index + 1}`);
+                    if (index === currentIndex) {
+                        dot.classList.add('active');
+                        dot.setAttribute('aria-current', 'true');
+                    }
+                    dot.addEventListener('click', () => showDeliverable(index));
+                    dotsContainer.appendChild(dot);
+                });
+            }
+
+            prevButton.addEventListener('click', () => {
+                showDeliverable(currentIndex - 1);
+            });
+
+            nextButton.addEventListener('click', () => {
+                showDeliverable(currentIndex + 1);
+            });
+
+            // Keyboard navigation
+             window.addEventListener('keydown', (e) => {
+                 // Check if the carousel section is visible or relevant
+                 // This basic check prevents interference when modal is open etc.
+                 if (document.querySelector('#carousel-section')) { 
+                    if (e.key === 'ArrowLeft') {
+                        // Prevent page scroll
+                        e.preventDefault(); 
+                        showDeliverable(currentIndex - 1);
+                    } else if (e.key === 'ArrowRight') {
+                         // Prevent page scroll
+                        e.preventDefault();
+                        showDeliverable(currentIndex + 1);
+                    }
+                 }
+            });
+
+            // Initial load
+            showDeliverable(0); 
+
+        });
+    </script>
+</body>
+</html>
