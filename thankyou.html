@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thank You & Next Steps | Walter Petrouchin</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts: Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Custom CSS for styling and animations -->
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f8fafc; /* slate-50 */
+            color: #0f172a; /* slate-900 */
+        }
+        .glass-effect {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid rgba(0, 0, 0, 0.05);
+        }
+        /* Mobile Menu Transition */
+        #mobile-menu {
+            transition: opacity 0.3s ease-in-out;
+        }
+        /* --- QUIZ MODAL STYLES --- */
+        .quiz-modal {
+            transition: opacity 0.3s ease, transform 0.3s ease;
+        }
+        .quiz-modal-content {
+            transition: transform 0.3s ease;
+        }
+        .quiz-option {
+            transition: background-color 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
+        }
+        .quiz-option:hover {
+            transform: translateY(-2px);
+            border-color: #3b82f6; /* blue-400 */
+        }
+        .quiz-option.correct {
+            background-color: #ecfdf5; /* green-50 */
+            border-color: #10b981; /* green-500 */
+        }
+        .quiz-option.incorrect {
+            background-color: #fef2f2; /* red-50 */
+            border-color: #ef4444; /* red-500 */
+        }
+        /* Progress Bar Styles */
+        .progress-bar-container {
+            background-color: #e5e7eb; /* gray-200 */
+            border-radius: 9999px;
+            height: 8px;
+            width: 100%;
+            overflow: hidden;
+        }
+        .progress-bar-inner {
+            background-color: #2563eb; /* blue-600 */
+            height: 100%;
+            border-radius: 9999px;
+            transition: width 0.5s ease-in-out;
+        }
+    </style>
+</head>
+<body class="antialiased">
+
+    <!-- Navigation Header -->
+    <header id="main-header" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 glass-effect shadow-lg">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="/" class="text-xl font-bold tracking-wider text-slate-800">WALTER PETROUCHIN</a>
+             <!-- UPDATED: Navigation for Owner.com role -->
+            <nav class="hidden lg:flex items-center space-x-6 text-sm font-medium text-slate-600">
+                <a href="/" class="hover:text-blue-600 transition-colors">Home</a>
+                <a href="resume.html" class="hover:text-blue-600 transition-colors">Resume & Story</a>
+                <a href="events.html" class="hover:text-blue-600 transition-colors">Events</a>
+                <a href="fit.html" class="hover:text-blue-600 transition-colors">Fit</a>
+                <a href="plan.html" class="hover:text-blue-600 transition-colors">90-Day Plan</a>
+                <a href="fun.html" class="hover:text-blue-600 transition-colors">Beyond Work</a>
+                <a href="thankyou.html" class="text-blue-600 font-semibold transition-colors">Thank You</a>
+            </nav>
+            <div class="lg:hidden">
+                <button id="mobile-menu-button" class="text-slate-800 focus:outline-none z-50">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- UPDATED: Mobile Menu Overlay -->
+    <div id="mobile-menu" class="fixed inset-0 z-40 bg-white/95 backdrop-blur-lg flex flex-col items-center justify-center space-y-6 opacity-0 pointer-events-none lg:hidden">
+        <a href="/" class="text-2xl font-semibold text-slate-800">Home</a>
+        <a href="resume.html" class="text-2xl font-semibold text-slate-800">Resume & Story</a>
+        <a href="events.html" class="text-2xl font-semibold text-slate-800">Events</a>
+        <a href="fit.html" class="text-2xl font-semibold text-slate-800">Fit</a>
+        <a href="plan.html" class="text-2xl font-semibold text-slate-800">90-Day Plan</a>
+        <a href="fun.html" class="text-2xl font-semibold text-slate-800">Beyond Work</a>
+        <a href="thankyou.html" class="text-2xl font-semibold text-blue-600">Thank You</a>
+    </div>
+
+    <!-- Main Content Section -->
+    <main class="pt-32 pb-16">
+        <!-- UPDATED: Intro text -->
+        <section id="intro" class="container mx-auto px-6 text-center">
+            <div class="max-w-3xl mx-auto">
+                <h1 class="text-4xl md:text-5xl font-extrabold tracking-tight text-slate-900">Thank You & Next Steps</h1>
+                <p class="mt-4 text-lg text-slate-600">I sincerely appreciate you taking the time to review my application website for the Events Manager role. I'm incredibly excited about Owner.com's mission and confident I can build an events function that drives significant pipeline growth and strengthens your connection with the restaurant community. I'm eager to discuss how my 'builder mindset' and passion for local businesses align with your goals.</p>
+            </div>
+        </section>
+        
+        <!-- Video section (assuming video is still relevant or will be updated) -->
+        <section id="video" class="container mx-auto px-6 pt-24 pb-16">
+            <div class="max-w-4xl mx-auto">
+                <div class="aspect-video bg-slate-200 rounded-xl overflow-hidden shadow-2xl shadow-slate-900/10 border border-slate-200">
+                    <iframe 
+                        src="https://www.youtube.com/embed/MMUyVmgDWMQ?rel=0" 
+                        frameborder="0" 
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                        allowfullscreen 
+                        class="w-full h-full" 
+                        title="Thank You Video">
+                    </iframe>
+                </div>
+            </div>
+        </section>
+
+        <section id="next-steps" class="container mx-auto px-6 pt-16 pb-16">
+            <div class="max-w-3xl mx-auto text-center">
+                <h2 class="text-3xl font-bold text-slate-800">Ready When You Are</h2>
+                <div class="mt-8 flex flex-col sm:flex-row items-center justify-center gap-4">
+                     <!-- UPDATED: Mailto subject and button color -->
+                    <a href="mailto:walter.petr@yahoo.com?subject=Interview%20%7C%20Walter%20Petrouchin%20%7C%20Events%20Manager%20Role%20at%20Owner.com&body=Hi%20Walter%2C%0A%0AI've%20reviewed%20your%20application%20website%20and%20would%20like%20to%20schedule%20an%20interview%20to%20discuss%20the%20Events%20Manager%20role.%0A%0APlease%20let%20me%20know%20which%20of%20the%20following%20times%20works%20for%20you%3A%0A%0A-%20%5BDate%5D%20at%20%5BTime%5D%0A-%20%5BDate%5D%20at%20%5BTime%5D%0A-%20%5BDate%5D%20at%20%5BTime%5D%0A%0ABest%2C" class="w-full sm:w-auto flex items-center justify-center gap-x-3 bg-blue-600 text-white font-semibold py-3 px-8 rounded-lg hover:bg-blue-700 transition-colors text-lg shadow-md hover:shadow-lg transform hover:-translate-y-1"><svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" /></svg>Schedule an Interview</a>
+                     <!-- UPDATED: Resume link -->
+                    <a href="https://drive.google.com/file/d/1TI-zCVn9tgjvkh_7e1JbjYUukenHr3ug/view?usp=sharing" target="_blank" class="w-full sm:w-auto flex items-center justify-center gap-x-3 bg-slate-200 text-slate-800 font-semibold py-3 px-8 rounded-lg hover:bg-slate-300 transition-colors text-lg shadow-md hover:shadow-lg transform hover:-translate-y-1"><svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" /></svg>Download PDF Resume</a>
+                </div>
+                <!-- Contact Info -->
+                <div class="mt-12 text-slate-500">
+                    <p class="font-semibold text-slate-700">Walter Petrouchin</p>
+                    <p>walter.petr@yahoo.com | (310) 874-4247</p>
+                    <a href="https://www.linkedin.com/in/walterpetrouchin/" target="_blank" rel="noopener noreferrer" class="text-blue-600 hover:underline">LinkedIn Profile</a>
+                </div>
+
+                <!-- Secret Button (functionality remains) -->
+                <div class="mt-24">
+                    <button id="secret-button" class="text-sm text-slate-400 hover:text-blue-600 transition-colors">Shh.. this is a super secret button. Only click if you absolutely must...</button>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Quiz Modal -->
+    <div id="quiz-modal" class="quiz-modal fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-900 bg-opacity-50 opacity-0 pointer-events-none">
+        <div class="quiz-modal-content bg-white rounded-xl w-full max-w-2xl max-h-[90vh] overflow-y-auto p-8 transform scale-95">
+            <!-- Quiz Content will be injected here by JavaScript -->
+        </div>
+    </div>
+
+    <!-- JavaScript for interactivity -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // --- Mobile Menu Logic ---
+            // ... (same as previous version) ...
+            const mobileMenuButton = document.getElementById('mobile-menu-button');
+            const mobileMenu = document.getElementById('mobile-menu');
+            const toggleMobileMenu = () => {
+                const isMenuOpen = !mobileMenu.classList.contains('pointer-events-none');
+                if (isMenuOpen) {
+                    mobileMenu.classList.add('opacity-0');
+                    setTimeout(() => {
+                        mobileMenu.classList.add('pointer-events-none');
+                        document.body.style.overflow = 'auto';
+                    }, 300);
+                } else {
+                    mobileMenu.classList.remove('opacity-0', 'pointer-events-none');
+                    document.body.style.overflow = 'hidden';
+                }
+            };
+            if (mobileMenuButton && mobileMenu) {
+                mobileMenuButton.addEventListener('click', toggleMobileMenu);
+                mobileMenu.querySelectorAll('a').forEach(link => link.addEventListener('click', toggleMobileMenu));
+                mobileMenu.addEventListener('click', (event) => { if (event.target === mobileMenu) toggleMobileMenu(); });
+                window.addEventListener('keydown', (e) => {
+                    const isMenuOpen = !mobileMenu.classList.contains('pointer-events-none');
+                    if (e.key === 'Escape' && isMenuOpen) toggleMobileMenu();
+                });
+            }
+
+
+            // --- QUIZ LOGIC ---
+            const secretButton = document.getElementById('secret-button');
+            const quizModal = document.getElementById('quiz-modal');
+            const quizModalContent = quizModal.querySelector('.quiz-modal-content');
+            let currentQuestionIndex = 0;
+
+            // UPDATED: Quiz questions for Owner.com context
+            const quizData = [
+                { question: "What Owner.com value most reflects my experience growing up in my family's business and defending it in court?", options: ["Move Fast", "Obsess Over Customers", "Build as an Owner"], correct: 2, hint: "Hint: It's about taking initiative and responsibility. Check the 'Fit' page!" },
+                { question: "How old was I when I started helping demonstrate products at trade shows for my family's business?", options: ["6 years old", "10 years old", "16 years old"], correct: 0, hint: "Hint: It started very early! Find the story on the 'Resume & Story' page." },
+                { question: "What skill did my law school experience directly train me for, which is essential for building event playbooks and ROI reports?", options: ["Public Speaking", "Synthesizing complex info into clear memos", "Negotiating contracts"], correct: 1, hint: "Hint: Look for the highlighted takeaway about law school on the 'Resume & Story' page." },
+                { question: "Which Owner.com value is best demonstrated by my graduating USC a year early with two degrees?", options: ["Scale Yourself", "Bring Good Energy", "Move Fast"], correct: 2, hint: "Hint: It's about speed and efficiency. Mentioned on the 'Fit' page." },
+                { question: "What percentage budget increase did I achieve as President of a student organization?", options: ["100%", "200%", "300%"], correct: 2, hint: "Hint: I aimed for significant results! It's highlighted under 'Build as an Owner' on the 'Resume & Story' page." }
+            ];
+
+
+            const openQuizModal = () => {
+                renderIntro(); // Renders the initial modal content
+                quizModal.classList.remove('opacity-0', 'pointer-events-none');
+                quizModalContent.classList.remove('scale-95');
+                document.body.style.overflow = 'hidden';
+            };
+
+            const closeQuizModal = () => {
+                quizModal.classList.add('opacity-0');
+                quizModalContent.classList.add('scale-95');
+                setTimeout(() => {
+                    quizModal.classList.add('pointer-events-none');
+                    document.body.style.overflow = 'auto';
+                }, 300); // Match CSS transition duration
+            };
+            
+            // Renders the initial intro screen for the quiz modal
+            const renderIntro = () => {
+                quizModalContent.innerHTML = `
+                    <div class="flex justify-between items-start">
+                        <div class="w-full text-center">
+                           <h3 class="text-2xl font-bold text-slate-800">Quick Recap Quiz!</h3>
+                        </div>
+                        <button id="close-quiz" class="text-slate-400 hover:text-slate-800 text-3xl leading-none -mt-2 -mr-2">&times;</button>
+                    </div>
+                    <div class="text-left mt-4">
+                        <p class="text-slate-600">Thanks for exploring! This optional quiz is a fun way to recap some key points from my application site. It should only take a minute.</p>
+                        <div class="text-center">
+                            <button id="start-quiz-button" class="mt-8 bg-blue-600 text-white font-semibold py-3 px-8 rounded-lg hover:bg-blue-700 transition-colors inline-block">Start the Quiz</button>
+                        </div>
+                    </div>
+                `;
+            };
+
+             // Renders the current question in the quiz modal
+            const renderQuestion = () => {
+                const questionData = quizData[currentQuestionIndex];
+                const progressPercent = (currentQuestionIndex / quizData.length) * 100; // Progress before answering
+                let optionsHTML = questionData.options.map((option, index) => 
+                    `<button data-index="${index}" class="quiz-option w-full text-left p-4 border-2 border-slate-200 rounded-lg text-slate-700 font-semibold">${option}</button>`
+                ).join('');
+
+                quizModalContent.innerHTML = `
+                    <div class="flex justify-between items-center">
+                        <h3 class="text-xl font-bold text-slate-800">Question ${currentQuestionIndex + 1} of ${quizData.length}</h3>
+                        <button id="close-quiz" class="text-slate-400 hover:text-slate-800 text-3xl leading-none">&times;</button>
+                    </div>
+                    <div class="mt-6">
+                        <p class="text-lg text-slate-700 mb-4">${questionData.question}</p>
+                        <div class="space-y-3">${optionsHTML}</div>
+                        <div id="hint-area" class="mt-4 text-sm text-red-600 h-5"></div>
+                    </div>
+                    <div class="mt-8">
+                        <div class="progress-bar-container"><div id="progress-bar-inner" class="progress-bar-inner" style="width: ${progressPercent}%"></div></div>
+                    </div>
+                `;
+            };
+
+            // Renders the success screen (keeping the gift card example)
+             const renderSuccess = () => {
+                quizModalContent.innerHTML = `
+                    <div class="text-center">
+                        <h3 class="text-2xl font-bold text-slate-800">Congratulations & Thank You!</h3>
+                        <p class="mt-4 text-slate-600">You've successfully navigated my application. As a small token of my appreciation for your team's time and effort, please enjoy a coffee on me.</p>
+                        <div class="my-6 p-6 bg-black text-white rounded-xl shadow-lg text-left relative">
+                            <div class="absolute top-4 right-4 bg-white/10 backdrop-blur-sm text-white text-lg font-bold px-4 py-1 rounded-full border border-white/20">$25</div>
+                            <!-- Uber Eats Icon Placeholder -->
+                             <svg class="h-8 mx-auto mb-5 text-green-400" viewBox="0 0 512 512" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M336.4 256c0 44.2-35.8 80-80 80s-80-35.8-80-80 35.8-80 80-80 80 35.8 80 80zM512 256c0 141.4-114.6 256-256 256S0 397.4 0 256 114.6 0 256 0s256 114.6 256 256zm-48 0c0-114.9-93.1-208-208-208S48 141.1 48 256s93.1 208 208 208 208-93.1 208-208z"></path></svg>
+                            <h4 class="text-center font-bold text-xl tracking-wider mb-4">Uber Eats</h4>
+                            <div class="mt-4 space-y-3 bg-gray-800 p-4 rounded-lg">
+                                <div>
+                                    <label class="text-xs text-gray-400 font-medium">Card #</label>
+                                    <p class="font-mono tracking-wider text-lg">3086 4612 3040 7663 239</p>
+                                </div>
+                                <div>
+                                    <label class="text-xs text-gray-400 font-medium">Gift Code</label>
+                                    <p class="font-mono tracking-wider text-lg">NAA7UZAPZ5XQHTFK</p>
+                                </div>
+                            </div>
+                            <a href="https://www.uber.com/us/en/gift-cards/redeem/" target="_blank" rel="noopener noreferrer" class="block w-full text-center mt-6 bg-green-500 text-white font-semibold py-3 px-4 rounded-lg hover:bg-green-600 transition-colors">Redeem Now</a>
+                        </div>
+                        <p class="text-sm text-slate-500 italic">I believe that going the extra mile reflects character. I hope this brings a little boost to your team's day.</p>
+                        <button id="close-quiz-success" class="mt-6 bg-blue-600 text-white font-semibold py-2 px-6 rounded-lg hover:bg-blue-700 transition-colors">Close</button>
+                    </div>
+                `;
+            };
+
+            // Event listener for interactions within the quiz modal
+            quizModalContent.addEventListener('click', (e) => {
+                 // Close button logic
+                if(e.target.matches('#close-quiz') || e.target.matches('#close-quiz-success')) {
+                    closeQuizModal();
+                }
+                 // Start button logic
+                if(e.target.matches('#start-quiz-button')) {
+                    currentQuestionIndex = 0;
+                    renderQuestion(); // Render the first question
+                }
+                // Option button logic
+                if (e.target.classList.contains('quiz-option')) {
+                    const selectedIndex = parseInt(e.target.dataset.index);
+                    const correctIndex = quizData[currentQuestionIndex].correct;
+                    const hintArea = document.getElementById('hint-area');
+                    const progressBar = document.getElementById('progress-bar-inner');
+
+                     // Disable all options temporarily
+                    document.querySelectorAll('.quiz-option').forEach(btn => btn.disabled = true);
+
+                    if (selectedIndex === correctIndex) {
+                        e.target.classList.add('correct'); // Mark as correct
+                        
+                        const isLastQuestion = currentQuestionIndex === quizData.length - 1;
+                        hintArea.textContent = isLastQuestion ? 'Success! Revealing your reward...' : 'Correct! Loading next question...';
+                        hintArea.classList.remove('text-red-600');
+                        hintArea.classList.add('text-green-600');
+                        
+                        // Update progress bar AFTER answering
+                        const progressPercent = ((currentQuestionIndex + 1) / quizData.length) * 100;
+                        progressBar.style.width = `${progressPercent}%`;
+
+                        // Move to next question or success screen
+                        setTimeout(() => {
+                            currentQuestionIndex++;
+                            if (currentQuestionIndex < quizData.length) {
+                                renderQuestion();
+                            } else {
+                                renderSuccess();
+                            }
+                        }, 1500); // Wait 1.5 seconds
+                    } else {
+                        e.target.classList.add('incorrect'); // Mark as incorrect
+                        hintArea.textContent = quizData[currentQuestionIndex].hint; // Show hint
+                        // Re-enable options after showing incorrect feedback
+                        setTimeout(() => {
+                            e.target.classList.remove('incorrect');
+                            document.querySelectorAll('.quiz-option').forEach(btn => btn.disabled = false);
+                            hintArea.textContent = ''; // Clear hint
+                        }, 2500); // Wait 2.5 seconds
+                    }
+                }
+            });
+            
+            // Event listener for the secret button to open the modal
+            secretButton.addEventListener('click', openQuizModal);
+
+             // Close modal if user clicks outside the content area
+            quizModal.addEventListener('click', (e) => {
+                if (e.target === quizModal) closeQuizModal();
+            });
+             // Close modal on Escape key press
+            window.addEventListener('keydown', (e) => {
+                if (e.key === 'Escape' && !quizModal.classList.contains('pointer-events-none')) {
+                    closeQuizModal();
+                }
+            });
+        });
+    </script>
+</body>
+</html>

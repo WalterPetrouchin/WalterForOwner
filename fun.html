@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Beyond Work | Walter Petrouchin</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts: Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Custom CSS for styling and animations -->
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f8fafc; /* slate-50 */
+            color: #0f172a; /* slate-900 */
+        }
+        .section-compact {
+            min-height: auto;
+            padding-top: 6rem;
+            padding-bottom: 6rem;
+        }
+        .glass-effect {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid rgba(0, 0, 0, 0.05);
+        }
+        #mobile-menu {
+            transition: opacity 0.3s ease-in-out;
+        }
+        
+        /* --- MOBILE STYLES --- */
+        .mobile-photo-card {
+            background-color: white;
+            border-radius: 0.75rem;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+            overflow: hidden;
+            border: 1px solid #e2e8f0; /* slate-200 */
+            margin-bottom: 1.5rem; /* Added margin for spacing between cards */
+        }
+        .mobile-photo-media {
+            height: 300px;
+            width: 100%;
+        }
+        .mobile-photo-media img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        .mobile-photo-media iframe {
+            width: 100%;
+            height: 100%;
+        }
+        .mobile-photo-description {
+            padding: 1rem;
+            color: #475569; /* slate-600 */
+            text-align: left;
+        }
+        .mobile-photo-description h3 {
+            font-weight: 700;
+            font-size: 1.125rem;
+            color: #1e293b; /* slate-800 */
+            margin-bottom: 0.5rem;
+        }
+
+        /* --- DESKTOP STYLES --- */
+        @media (min-width: 768px) { /* Changed breakpoint to md for consistency with Tailwind */
+            .desktop-mosaic-container {
+                position: relative;
+                width: 100%;
+                height: 80vh;
+                min-height: 700px;
+            }
+            .desktop-photo-card {
+                position: absolute;
+                height: auto;
+                cursor: pointer;
+                overflow: hidden;
+                border-radius: 0.75rem;
+                box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+                transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+                border: 4px solid white;
+            }
+            .desktop-photo-card:hover {
+                transform: scale(1.1) rotate(0deg) !important;
+                box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+                z-index: 10;
+            }
+            .desktop-photo-card img, .desktop-photo-card iframe {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+            }
+            .desktop-photo-description {
+                position: absolute;
+                bottom: 0;
+                left: 0;
+                right: 0;
+                background: linear-gradient(to top, rgba(0,0,0,0.8), rgba(0,0,0,0));
+                color: white;
+                padding: 2rem 1rem 1rem;
+                opacity: 0;
+                transform: translateY(20px);
+                transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
+                pointer-events: none; /* Allows clicks to pass through to the iframe */
+            }
+            .desktop-photo-card:hover .desktop-photo-description {
+                opacity: 1;
+                transform: translateY(0);
+            }
+            /* Adjusted positions for better spacing */
+            #photo-1 { top: 5%; left: 5%; width: 28%; height: 40%; transform: rotate(-4deg); }
+            #photo-2 { top: 52%; left: 55%; width: 40%; height: 40%; transform: rotate(-2deg); } /* Shifted right */
+            #photo-3 { top: 10%; left: 38%; width: 30%; height: 55%; transform: rotate(1deg); }
+            #photo-4 { top: 0%; left: 72%; width: 25%; height: 48%; transform: rotate(5deg); }
+            #photo-5 { top: 50%; left: 10%; width: 35%; height: 45%; transform: rotate(3deg); } /* Shifted slightly right */
+        }
+    </style>
+</head>
+<body class="antialiased">
+
+    <!-- Navigation Header -->
+    <header id="main-header" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 glass-effect shadow-lg">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="/" class="text-xl font-bold tracking-wider text-slate-800">WALTER PETROUCHIN</a>
+            <!-- UPDATED: Navigation for Owner.com role -->
+            <nav class="hidden lg:flex items-center space-x-6 text-sm font-medium text-slate-600">
+                <a href="/" class="hover:text-blue-600 transition-colors">Home</a>
+                <a href="resume.html" class="hover:text-blue-600 transition-colors">Resume & Story</a>
+                <a href="events.html" class="hover:text-blue-600 transition-colors">Events</a>
+                <a href="fit.html" class="hover:text-blue-600 transition-colors">Fit</a>
+                <a href="plan.html" class="hover:text-blue-600 transition-colors">90-Day Plan</a>
+                <a href="fun.html" class="text-blue-600 font-semibold transition-colors">Beyond Work</a>
+                <a href="thankyou.html" class="hover:text-blue-600 transition-colors">Thank You</a>
+            </nav>
+            <div class="lg:hidden">
+                <button id="mobile-menu-button" class="text-slate-800 focus:outline-none z-50">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- UPDATED: Mobile Menu Overlay -->
+    <div id="mobile-menu" class="fixed inset-0 z-40 bg-white/95 backdrop-blur-lg flex flex-col items-center justify-center space-y-6 opacity-0 pointer-events-none lg:hidden">
+        <a href="/" class="text-2xl font-semibold text-slate-800">Home</a>
+        <a href="resume.html" class="text-2xl font-semibold text-slate-800">Resume & Story</a>
+        <a href="events.html" class="text-2xl font-semibold text-slate-800">Events</a>
+        <a href="fit.html" class="text-2xl font-semibold text-slate-800">Fit</a>
+        <a href="plan.html" class="text-2xl font-semibold text-slate-800">90-Day Plan</a>
+        <a href="fun.html" class="text-2xl font-semibold text-blue-600">Beyond Work</a>
+        <a href="thankyou.html" class="text-2xl font-semibold text-slate-800">Thank You</a>
+    </div>
+
+
+    <!-- Main Content Section -->
+    <main class="pt-32">
+        <!-- UPDATED: Intro text -->
+        <section id="intro" class="container mx-auto px-6 text-center">
+            <div class="max-w-3xl mx-auto">
+                <h1 class="text-4xl md:text-5xl font-extrabold tracking-tight text-slate-900">Beyond the Resume</h1>
+                <p class="mt-4 text-lg text-slate-600">
+                   A few snapshots from my life outside of work. These capture my passions and reflect the energy, discipline, and community spirit I bring to everything I do. Hover over any image to learn more (or click to play).
+                </p>
+                <!-- UPDATED: P.S. note -->
+                <p class="mt-6 text-sm text-slate-500 italic">
+                    <strong>P.S.</strong> While I love these activities, my top priority is making a huge impact at Owner.com. I understand the intensity required and I'm excited to bring my full energy and focus to building an amazing events program that supports local restaurants.
+                </p>
+            </div>
+        </section>
+        
+        <!-- Photo Collage Section (Content remains the same, styles updated above if needed) -->
+        <section id="photo-collage" class="container mx-auto px-6 pt-24 pb-16">
+            <div class="max-w-6xl mx-auto">
+
+                <!-- DESKTOP MOSAIC - Hidden on mobile -->
+                <div class="hidden md:block desktop-mosaic-container">
+                    <div id="photo-1" class="desktop-photo-card"><img src="https://res.cloudinary.com/dq7glunwv/image/upload/Tomatoes.jpg" alt="Walter holding homegrown tomatoes" onerror="this.onerror=null;this.src='https://placehold.co/600x400/f8fafc/0f172a?text=Image+Not+Found';"><div class="desktop-photo-description"><h3>Homegrown Veggies 😋</h3><p class="text-sm">I love growing my own veggies in my small backyard! Eating them makes me smile every time :)</p></div></div>
+                    <div id="photo-2" class="desktop-photo-card"><img src="https://res.cloudinary.com/dq7glunwv/image/upload/Splits_cpj4zy.jpg" alt="Walter doing the splits" onerror="this.onerror=null;this.src='https://placehold.co/600x400/f8fafc/0f172a?text=Image+Not+Found';"><div class="desktop-photo-description"><h3>Daily Discipline</h3><p class="text-sm">A daily yoga practice is a non-negotiable in my world: 1) it helps me feel my best and 2) I believe there’s great virtue in sustaining habits over a long time horizon because doing so builds discipline that transfers into every area of life.</p></div></div>
+                    <div id="photo-3" class="desktop-photo-card"><iframe src="https://www.youtube.com/embed/CIGGDSdhWZQ" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe><div class="desktop-photo-description"><h3>Day 10 of Learning Piano!</h3><p class="text-sm">I started learning to play the piano and sing about two weeks ago. This video is from my 10th day and I enjoyed the process. I'm excited to keep learning!</p></div></div>
+                    <div id="photo-4" class="desktop-photo-card"><img src="https://res.cloudinary.com/dq7glunwv/image/upload/Take_the_staris_gjwa6g.png" alt="Walter with a stack of books" onerror="this.onerror=null;this.src='https://placehold.co/600x400/f8fafc/0f172a?text=Image+Not+Found';"><div class="desktop-photo-description"><h3>Self-Improvement Addict</h3><p class="text-sm">I love reading! I read my first self-improvement book (Rich Dad Poor Dad) in fifth grade and haven’t looked back!</p></div></div>
+                    <div id="photo-5" class="desktop-photo-card"><img src="https://res.cloudinary.com/dq7glunwv/image/upload/Basketball_zhgpwn.jpg" alt="Walter playing basketball" onerror="this.onerror=null;this.src='https://placehold.co/600x400/f8fafc/0f172a?text=Image+Not+Found';"><div class="desktop-photo-description"><h3>Basketball 🫶</h3><p class="text-sm">Basketball is one of my favorite sports - I lose track of time and have an absolute blast every time I lace up :)</p></div></div>
+                </div>
+
+                <!-- MOBILE STACK - Hidden on desktop -->
+                <div class="md:hidden space-y-6"> <!-- Using space-y for consistent spacing -->
+                    <div class="mobile-photo-card"><div class="mobile-photo-media"><img src="https://res.cloudinary.com/dq7glunwv/image/upload/Tomatoes.jpg" alt="Walter holding homegrown tomatoes" onerror="this.onerror=null;this.src='https://placehold.co/600x400/f8fafc/0f172a?text=Image+Not+Found';"></div><div class="mobile-photo-description"><h3>Homegrown Veggies 😋</h3><p>I love growing my own veggies in my small backyard! Eating them makes me smile every time :)</p></div></div>
+                    <div class="mobile-photo-card"><div class="mobile-photo-media"><img src="https://res.cloudinary.com/dq7glunwv/image/upload/Splits_cpj4zy.jpg" alt="Walter doing the splits" onerror="this.onerror=null;this.src='https://placehold.co/600x400/f8fafc/0f172a?text=Image+Not+Found';"></div><div class="mobile-photo-description"><h3>Daily Discipline</h3><p>A daily yoga practice is a non-negotiable in my world: 1) it helps me feel my best and 2) I believe there’s great virtue in sustaining habits over a long time horizon because doing so builds discipline that transfers into every area of life.</p></div></div>
+                    <div class="mobile-photo-card"><div class="mobile-photo-media"><iframe src="https://www.youtube.com/embed/CIGGDSdhWZQ" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div><div class="mobile-photo-description"><h3>Learning Piano!</h3><p>I started learning to play the piano and sing about two weeks ago. This video is from my 10th day and I enjoyed the process. I'm excited to keep learning!</p></div></div>
+                    <div class="mobile-photo-card"><div class="mobile-photo-media"><img src="https://res.cloudinary.com/dq7glunwv/image/upload/Take_the_staris_gjwa6g.png" alt="Walter with a stack of books" onerror="this.onerror=null;this.src='https://placehold.co/600x400/f8fafc/0f172a?text=Image+Not+Found';"></div><div class="mobile-photo-description"><h3>Self-Improvement Addict</h3><p>I love reading! I read my first self-improvement book (Rich Dad Poor Dad) in fifth grade and haven’t looked back!</p></div></div>
+                    <div class="mobile-photo-card"><div class="mobile-photo-media"><img src="https://res.cloudinary.com/dq7glunwv/image/upload/Basketball_zhgpwn.jpg" alt="Walter playing basketball" onerror="this.onerror=null;this.src='https://placehold.co/600x400/f8fafc/0f172a?text=Image+Not+Found';"></div><div class="mobile-photo-description"><h3>Basketball 🫶</h3><p>Basketball is one of my favorite sports - I lose track of time and have an absolute blast every time I lace up :)</p></div></div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Section: Next Page -->
+        <!-- UPDATED: Next page link and button text/color -->
+        <section id="next-page" class="section-compact bg-white border-t border-slate-200">
+            <div class="container mx-auto px-6 text-center">
+                <h2 class="text-2xl font-bold text-slate-800">Ready for the final step?</h2>
+                <p class="mt-2 text-slate-600">The last page includes a thank you message and next steps.</p>
+                <div class="mt-8">
+                    <a href="thankyou.html" class="inline-flex items-center justify-center gap-x-3 bg-blue-600 text-white font-semibold py-3 px-8 rounded-lg hover:bg-blue-700 transition-colors text-lg shadow-md hover:shadow-lg transform hover:-translate-y-1">
+                        View Thank You & Next Steps
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <!-- UPDATED: Footer link colors -->
+    <footer class="bg-slate-100 border-t border-slate-200">
+        <div class="container mx-auto px-6 py-8 text-center text-slate-500">
+            <p class="font-semibold text-slate-700">Walter Petrouchin</p>
+            <p class="text-sm">
+                <a href="mailto:walter.petr@yahoo.com" class="hover:text-blue-600 transition-colors">walter.petr@yahoo.com</a> | (310) 874-4247
+            </p>
+            <p class="text-sm mt-1">
+                <a href="https://www.linkedin.com/in/walterpetrouchin/" target="_blank" rel="noopener noreferrer" class="text-blue-600 hover:underline">LinkedIn Profile</a>
+            </p>
+        </div>
+    </footer>
+
+    <!-- JavaScript for interactivity -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            
+            // --- Mobile Menu Logic ---
+            const mobileMenuButton = document.getElementById('mobile-menu-button');
+            const mobileMenu = document.getElementById('mobile-menu');
+            const toggleMobileMenu = () => {
+                const isMenuOpen = !mobileMenu.classList.contains('pointer-events-none');
+                if (isMenuOpen) {
+                    mobileMenu.classList.add('opacity-0');
+                    setTimeout(() => {
+                        mobileMenu.classList.add('pointer-events-none');
+                        document.body.style.overflow = 'auto';
+                    }, 300);
+                } else {
+                    mobileMenu.classList.remove('opacity-0', 'pointer-events-none');
+                    document.body.style.overflow = 'hidden';
+                }
+            };
+            if (mobileMenuButton && mobileMenu) {
+                mobileMenuButton.addEventListener('click', toggleMobileMenu);
+                mobileMenu.querySelectorAll('a').forEach(link => link.addEventListener('click', toggleMobileMenu));
+                mobileMenu.addEventListener('click', (event) => { if (event.target === mobileMenu) toggleMobileMenu(); });
+                window.addEventListener('keydown', (e) => {
+                    const isMenuOpen = !mobileMenu.classList.contains('pointer-events-none');
+                    if (e.key === 'Escape' && isMenuOpen) toggleMobileMenu();
+                });
+            }
+        });
+    </script>
+</body>
+</html>
