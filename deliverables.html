@@ -36,7 +36,7 @@
             transition: opacity 0.3s ease-in-out;
         }
 
-        /* --- NEW: Carousel Styles --- */
+        /* --- Carousel Styles --- */
         .carousel-container {
             position: relative;
             max-width: 800px; /* Adjust max-width as needed */
@@ -248,7 +248,7 @@
         <div class="container mx-auto px-6 py-8 text-center text-slate-500">
             <p class="font-semibold text-slate-700">Walter Petrouchin</p>
             <p class="text-sm">
-                <a href="mailto:walter.petr@yahoo.com" class="hover:text-blue-600 transition-colors">walter.petr@yahoo.com</a> | (310) 874-47
+                <a href="mailto:walter.petr@yahoo.com" class="hover:text-blue-600 transition-colors">walter.petr@yahoo.com</a> | (310) 874-4247
             </p>
             <p class="text-sm mt-1">
                 <a href="https://www.linkedin.com/in/walterpetrouchin/" target="_blank" rel="noopener noreferrer" class="text-blue-600 hover:underline">LinkedIn Profile</a>
@@ -260,7 +260,6 @@
     <script>
         document.addEventListener('DOMContentLoaded', () => {
             // --- Mobile Menu Logic ---
-            // ... (same as previous files) ...
              const mobileMenuButton = document.getElementById('mobile-menu-button');
             const mobileMenu = document.getElementById('mobile-menu');
             const toggleMobileMenu = () => {
@@ -286,22 +285,22 @@
             }
 
 
-            // --- NEW: Carousel Logic ---
+            // --- UPDATED: Carousel Logic ---
             const deliverables = [
                 { 
                     imageUrl: "https://res.cloudinary.com/dq7glunwv/image/upload/v1761805083/IRL_Event_odyb0l.png", 
-                    title: "Example: Trade Show Playbook",
-                    description: "This snippet shows the pre-event checklist and sales team briefing section from a playbook I developed for maximizing ROI at industry trade shows. It emphasizes clear roles, lead capture process, and post-show follow-up cadence." 
+                    title: "Strategic Field Marketing Event",
+                    description: "I designed and executed this IRL event for a key partner audience (architects). While it provided high-value networking, the core business goal was to educate them on our product and equip them with materials to specify it in their drawings. This 'educate and equip' strategy directly generated a new sales pipeline." 
                 },
                 { 
                     imageUrl: "https://res.cloudinary.com/dq7glunwv/image/upload/v1761805276/Glass_Home_Picture_At_Trade_Show_shjphb.png", 
-                    title: "Example: Event ROI Dashboard",
-                    description: "A mockup of a dashboard I designed to track key event KPIs, including leads generated, pipeline influenced (by stage), cost per lead, cost per opportunity, and estimated ROI based on average deal size and close rates." 
+                    title: "Flagship Trade Show Activation",
+                    description: "This demonstrates my experience with large-scale 'flagship activations.' I owned the complex logistics and cross-functional execution of this 30x30ft booth, which featured a 10x20ft tiny home. This activation was designed to elevate the brand, stop traffic, and create a memorable, differentiated experience that captured high-quality leads for the sales team." 
                 },
                 { 
                     imageUrl: "https://res.cloudinary.com/dq7glunwv/image/upload/v1761805080/IRL_Event_2_ts9aul.jpg", 
-                    title: "Example: Small Dinner Event Execution",
-                    description: "Highlights from a series of small-format dinners hosted for key prospects. These events focused on creating an intimate, high-value experience, resulting in accelerated deal cycles and strong relationship building." 
+                    title: "Intimate Event & Community Leadership",
+                    description: "This highlights my experience with 'small-format dinners' and community-building. I am a confident and experienced public speaker, comfortable presenting to audiences of 100+. I am ready and excited to represent Owner.com, authentically connecting with the independent restaurant community at trade shows, dinners, and pop-ups." 
                 }
             ];
 
@@ -341,7 +340,6 @@
                  tempImage.onerror = () => {
                      // Handle image loading error (optional: show placeholder)
                      console.error("Error loading image:", deliverable.imageUrl);
-                     // You could set a default placeholder image here
                       imgElement.src = `https://placehold.co/800x500/fecaca/7f1d1d?text=Error+Loading+Image`; // Example error placeholder
                       imgElement.alt = "Error loading image";
                       titleElement.textContent = deliverable.title;
